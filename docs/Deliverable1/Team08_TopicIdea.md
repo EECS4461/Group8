@@ -61,12 +61,10 @@ Himelein-Wachowiak, M., Giorgi, S., Devoto, A., Rahman, M., Ungar, L., Schwartz,
 
 > Demonstrates pattern recognition in bot-driven misinformation campaigns
 
-Cui, L. et al. (2022). Adversarial Learning for Social Media Content Moderation.  *IEEE Transactions on Computational Social Systems* , 9(4). [https://doi.org/10.1109/TCSS.2022.3163754](https://doi.org/10.1109/TCSS.2022.3163754)
+Mena, P., Barbe, D., & Chan-Olmsted, S. (2020). Misinformation on Instagram: The impact of trusted endorsements on message credibility. Social Media + Society, 6(2). https://doi.org/10.1177/2056305120935102
 
 > Presents GAN-based approaches for detection-evasion simulation
 
 Zhang, Y., Song, W., Koura, Y. H., & Su, Y. (2023). Social Bots and information propagation in social networks: Simulating cooperative and competitive interaction dynamics. *Systems*, *11*(4), 210\.  [https://doi.org/10.3390/systems11040210](https://doi.org/10.3390/systems11040210)
 
 > Models multi-agent adversarial dynamics in social networks
-
- Mena, P., Barbe, D., & Chan-Olmsted, S. (2020). Misinformation on Instagram: The impact of trusted endorsements on message credibility. *Social Media \+ Society*, *6*(2). [https://doi.org/10.1177/2056305120935102](https://doi.org/10.1177/2056305120935102)
