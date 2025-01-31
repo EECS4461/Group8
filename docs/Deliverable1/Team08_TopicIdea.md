@@ -1,5 +1,3 @@
-# **Header**
-
 # Bot vs Guardian: Simulating Content Moderation Arms Race on Social Platforms
 
 > Other possible catchy titles :
