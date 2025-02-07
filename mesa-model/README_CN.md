@@ -78,7 +78,7 @@ class PublishingStrategy:
 
 ### **模型集成架构**
 
-![模型集成架构](https://via.placeholder.com/600x300.png/CCCCCC/FFFFFF?text=Hybrid+Model+Integration)
+![模型集成架构](Figure_1.png)
 
 **分层实现**：
 
