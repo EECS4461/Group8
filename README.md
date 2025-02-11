@@ -1,8 +1,11 @@
 # Social Bot Simulation on Xiaohongshu  
+
 ABM-based simulation of coordinated bot activities in e-commerce social platforms. 
 Deliverable Documents are in `\docs`, while adapted measa modeling in `mesa-model`.
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-> ## Bot vs Guardian: Simulating Content Modression on Xiaohongshu
+
+> ## Bot vs Guardian: Simulating Content Modression on redNote
 > Agent-based modeling of coordinated bot activities and AI moderation dynamics on Xiaohongshu's e-commerce platform.
 
 
