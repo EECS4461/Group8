@@ -54,6 +54,14 @@ The cyclical pattern where each moderation system upgrade triggers new evasion s
 * Developing community-specific circumvention jargon
 * Participating in crowdsourced detection testing
 
+### **Why Xiaohongshu?**
+
+Xiaohongshu (RedNote) represents a unique hybrid of social media and e-commerce, where user-generated content directly drives purchasing decisions. Unlike Western platforms like Instagram, Xiaohongshu's "grass-planting" (种草) culture emphasizes peer recommendations over brand advertisements, creating fertile ground for bot-driven manipulation. Three key factors motivate our focus:
+
+1. **Platform Affordances** : Integrated "post-to-purchase" flow enables bots to directly influence conversion rates.
+2. **Cultural Specificity** : High trust in UGC (User-Generated Content) amplifies bot impact compared to review-centric platforms like Amazon.
+3. **Regulatory Context** : China's evolving internet governance policies create rapid shifts in bot evasion tactics.
+
 ## Section 2: Relevant Works
 
 ### References
