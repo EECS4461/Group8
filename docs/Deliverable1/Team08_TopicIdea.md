@@ -1,10 +1,11 @@
-# Bot vs Guardian: Simulating Content Moderation Arms Race on Social Platforms
+# **AI vs Bots on Xiaohongshu: Modeling the Arms Race in E-commerce Comment Ecosystems**
 
 > Other possible catchy titles :
 >
 > 1. Simulating Social Bots: The Role of AI in Xiaohongshu’s Comment Ecosystem
 > 2. Manufacturing Trust: Coordinated Bot Interactions on Social Media
 > 3. Bot-Driven Credibility: Simulating Fake Endorsements on Xiaohongshu
+> 4. Bot vs Guardian: Simulating Content Moderation Arms Race on Social Platforms
 
 Team members: Xintong (Sylvia) LING,  Huanrui (Saikoro) CAO, Jiayi (Jaye) CHEN
 
