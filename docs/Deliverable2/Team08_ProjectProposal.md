@@ -1,12 +1,12 @@
 The Deliverable DEL 2.B The Proposal
 
-Header
+# Header
 
 * Title: Bots vs Guardians: Simulating Audits on Xiaohongshu (RedNote)  
 * Team members: Xintong (Sylvia) LING, Huanrui (Saikoro) CAO, Jiayi (Jaye) CHEN  
 * [GitHub repo URL](https://github.com/EECS4461/Group8):  [https://github.com/EECS4461/Group8](https://github.com/EECS4461/Group8)
 
-Section 1: Phenomena of interest.
+## Section 1: Phenomena of interest.
 
 Our project focuses on the commenting ecology of automated robots (bots) on the Chinese social media and e-commerce platform Xiaohongshu (RedNote). Automated bots often appear under posts containing specific keywords, especially in areas related to logistics and specific product categories. These bots often coordinate their actions to promote advertisements, counterfeit goods, and services such as fortune-telling.
 
@@ -20,7 +20,7 @@ Our simulation aims to explore the dynamics of bot-generated content and content
 
 We seek to understand how these phenomena evolve through simple agent-based interactions, leading to emergent behaviours similar to flocking dynamics in the Boid model.
 
-Section 2: Phenomena of interest.
+## Section 2: Phenomena of interest.
 
 To demonstrate the evolving challenges facing social media bot detection, we revisit the core phenomenon of our interest, the dynamic interplay between bot behavioural patterns and community structure in online networks, and consolidate this discussion with critical analyses of two important scholarly works.
 
@@ -28,19 +28,18 @@ Chen et al. (2024) introduce CACL, a framework for detecting social media bots u
 
 The article "Detecting Social Media Bots with Variational AutoEncoder and k-Nearest Neighbor" by Wang et al. (2021) proposes a method for identifying social media bots. The study introduces a detection framework that combines Variational AutoEncoders (VAE) with the k-Nearest Neighbor (k-NN) algorithm. The VAE is utilized to learn a compressed representation of user data, capturing essential features that distinguish genuine users from bots. Then the k-NN algorithm is applied to these representations to classify users based on their proximity to known bot or human profiles. Experimental results demonstrate that this hybrid approach enhances detection accuracy compared to traditional methods, offering a promising solution for mitigating the influence of bots on social media platforms.
 
-References
+### References
+> Chen, S., Feng, S., Liang, S., Zong, C.-C., Li, J., & Li, P. (2024, June 3). *CACL: Community-aware heterogeneous graph contrastive learning for social media bot detection*. arXiv.org. https://arxiv.org/abs/2405.10558
+> 
+> Wang, X., Zheng, Q., Zheng, K., Sui, Y., Cao, S., & Shi, Y. (2021, June 13). *Detecting social media bots with variational AutoEncoder and K-nearest neighbor*. MDPI. https://www.mdpi.com/2076-3417/11/12/5482 
 
-Chen, S., Feng, S., Liang, S., Zong, C.-C., Li, J., & Li, P. (2024, June 3). *CACL: Community-aware heterogeneous graph contrastive learning for social media bot detection*. arXiv.org. https://arxiv.org/abs/2405.10558
+## Section 3: Describe the Core Components of the Simulation
 
-Wang, X., Zheng, Q., Zheng, K., Sui, Y., Cao, S., & Shi, Y. (2021, June 13). *Detecting social media bots with variational AutoEncoder and K-nearest neighbor*. MDPI. https://www.mdpi.com/2076-3417/11/12/5482 
-
-Section 3: Describe the Core Components of the Simulation
-
-Instructions
+### Instructions
 
 Our simulation is most closely aligned with the Boid Flocking Model. This model effectively demonstrates how simple, local interaction rules can lead to complex, emergent group behaviours, which parallels the dynamics we aim to simulate on Xiaohongshu (RedNote). In our case, instead of birds, we are simulating the behaviours of human users and AI-driven social bots interacting within the platform's content ecosystem.
 
-§3.1 Entities: 
+### §3.1 Entities: 
 
 * Bot: AI agent that automates ads, manipulates credibility, and circumvents detection.           
   Goal: increase the credibility of ad content by interacting and masquerading as real users.  
@@ -54,31 +53,31 @@ Our simulation is most closely aligned with the Boid Flocking Model. This model 
   Behavior: Like, comment, share, report suspicious bots.
 
 
-§3.2 Affordances:
+### §3.2 Affordances:
 
 * Bot-user interactions: bots mimic human user behaviors such as liking, commenting, and sharing to enhance the credibility of the content they post.  
 * Confrontation between bots and auditing AI: Bots use semantic variants and social interactions to disguise themselves as real users to avoid AI detection.  
 * Auditing AI's detection mechanism: Auditing AI analyzes features such as comment content, time interval, and account activity to identify bot behavior.  
 * Impact of Recommendation Algorithms: Content with high interaction rates is more likely to be recommended, which may make bot content more widely distributed.
 
-§3.3 Algorithms:
+### §3.3 Algorithms:
 
 * Robot strategies:  
-  Reinforcement Learning (RL) to adapt to review policies and optimize content publishing time.  
-  Adversarial Text Generation to generate less detectable comments.  
-  Social Graph Camouflage to increase interaction with real users.  
+  - Reinforcement Learning (RL) to adapt to review policies and optimize content publishing time.  
+  - Adversarial Text Generation to generate less detectable comments.  
+  - Social Graph Camouflage to increase interaction with real users.  
 * Audit AI strategy:  
-  Adopt Graph Neural Networks (GNNs) for bot clustering detection.  
-  Combine with BERT semantic analysis to identify variant texts.  
-  Time-series analysis to identify unusual posting patterns.  
+  - Adopt Graph Neural Networks (GNNs) for bot clustering detection.  
+  - Combine with BERT semantic analysis to identify variant texts.  
+  - Time-series analysis to identify unusual posting patterns.  
 * Recommender system impact:  
-  Collaborative Filtering is used to decide what to recommend.  
-  Content that is liked, commented, and shared by users is more likely to be recommended, potentially amplifying the influence of bots.
+  - Collaborative Filtering is used to decide what to recommend.  
+  - Content that is liked, commented, and shared by users is more likely to be recommended, potentially amplifying the influence of bots.
 
 
-Section 4: Simulation Anticipated Outcomes
+## Section 4: Simulation Anticipated Outcomes
 
-Instructions
+## Instructions
 
 Boid Flocking Model:
 
