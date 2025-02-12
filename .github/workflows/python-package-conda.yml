@@ -24,6 +24,7 @@ jobs:
         pip install mesa
         conda install -c https://conda.anaconda.org/sloria textblob
         python -m textblob.download_corpora
+        pip install solara-server
     - name: Lint with flake8
       run: |
         conda install flake8
