@@ -22,8 +22,8 @@ jobs:
       run: |
         #conda env update --file environment.yml --name base
         pip install mesa
-        conda install -c https://conda.anaconda.org/sloria textblob
-        python -m textblob.download_corpora
+        #conda install -c https://conda.anaconda.org/sloria textblob
+        #python -m textblob.download_corpora
         conda install conda-forge::solara-server
     - name: Lint with flake8
       run: |
@@ -36,4 +36,4 @@ jobs:
       run: |
         conda install pytest
         pytest
-        solara run mesa-model/boids-flockers/del2_demo.py
+        solara run ../mesa-model/boids-flockers/del2_demo.py
