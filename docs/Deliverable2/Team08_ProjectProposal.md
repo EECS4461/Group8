@@ -19,7 +19,7 @@ Our simulation aims to explore the dynamics of bot-generated content and content
 
 We seek to understand how these phenomena evolve through simple agent-based interactions, leading to emergent behaviours similar to flocking dynamics in the Boid model.
 
-## Section 2: Phenomena of interest.
+## Section 2: Relevant Works.
 
 To demonstrate the evolving challenges facing social media bot detection, we revisit the core phenomenon of our interest, the dynamic interplay between bot behavioural patterns and community structure in online networks, and consolidate this discussion with critical analyses of two important scholarly works.
 
