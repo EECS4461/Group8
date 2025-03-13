@@ -33,11 +33,52 @@ jobs:
         #flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         #flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+    # - name: Test with demo_01
+    #   run: |
+    #     #conda install pytest
+    #     #pytest
+    #     timeout 30s solara run ./src/demo_01.py
+    # - name: Test with demo_02
+    #   run: |
+    #     timeout 30s solara run ./src/demo_02.py
     - name: Test with demo_01
       run: |
-        #conda install pytest
-        #pytest
-        timeout 30s solara run ./src/demo_01.py
+        # 在后台运行 Solara，并指定端口 8765
+        solara run --port 8765 ./src/demo_01.py &
+        # 保存后台进程 ID
+        SOLARA_PID=$!
+        # 最多等待 30 秒，检查服务器是否返回 200
+        for i in {1..30}; do
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8765)
+          if [ "$STATUS" -eq 200 ]; then
+            echo "Server started successfully and returned 200"
+            # 杀死后台进程
+            kill $SOLARA_PID
+            exit 0
+          fi
+          sleep 1
+        done
+        echo "Server did not start or did not return 200 within 30 seconds"
+        kill $SOLARA_PID
+        exit 1
+
     - name: Test with demo_02
       run: |
-        timeout 30s solara run ./src/demo_02.py
+        # 在后台运行 Solara，并指定端口 8765
+        solara run --port 8765 ./src/demo_02.py &
+        # 保存后台进程 ID
+        SOLARA_PID=$!
+        # 最多等待 30 秒，检查服务器是否返回 200
+        for i in {1..30}; do
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8765)
+          if [ "$STATUS" -eq 200 ]; then
+            echo "Server started successfully and returned 200"
+            # 杀死后台进程
+            kill $SOLARA_PID
+            exit 0
+          fi
+          sleep 1
+        done
+        echo "Server did not start or did not return 200 within 30 seconds"
+        kill $SOLARA_PID
+        exit 1
