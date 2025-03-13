@@ -17,12 +17,12 @@ pip install -r requirements.txt
   该示例演示了数据收集的统计表
 
 ```bash
-solara run ./scr/demo_01 .py
+solara run ./src/demo_01 .py
 ```
 
 - demo_02 Agents in different colors and shapes
   该示例演示了给不同的代理定义形状和颜色
 
 ```bash
-solara run ./scr/demo_02 .py
+solara run ./src/demo_02 .py
 ```
