@@ -43,5 +43,6 @@ jobs:
     #     timeout 30s solara run ./src/demo_02.py
     - name: Run Solara test script
       run: |
-          chmod +x run_solara.sh
-          bash run_solara.sh
+          chmod +x run_solara_demo1.sh run_solara_demo2.sh
+          bash run_solara_demo1.sh 
+          bash run_solara_demo2.sh 
