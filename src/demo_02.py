@@ -3,7 +3,7 @@ from mesa import Agent, Model
 from mesa.space import ContinuousSpace
 from mesa.visualization import Slider, SolaraViz, make_space_component
 from sklearn.cluster import DBSCAN
-from textblob import TextBlob
+#from textblob import TextBlob
 
 # 二维空间维度配置 - 移除 time_window
 SPACE_DIMENSIONS = {
@@ -14,18 +14,18 @@ SPACE_DIMENSIONS = {
 class OriginalPostAgent(Agent):
     def __init__(self, model):
         super().__init__(model) # 修正 Agent 初始化，添加 unique_id
-        self.keywords = self.generate_keywords()
+        #self.keywords = self.generate_keywords()
         self.base_heat = 1.0
         self.position = (
             np.random.uniform(*SPACE_DIMENSIONS['topic_heat']),
             np.random.uniform(40, 60),  # 初始情感中性
         )
 
-    def generate_keywords(self):
-        topics = ["fashion", "tech", "beauty", "lifestyle"]
-        post = f"New trend in {np.random.choice(topics)}! " + \
-               f"Limited {np.random.choice(['discount','deal','offer'])} available!"
-        return TextBlob(post).noun_phrases
+    # def generate_keywords(self):
+    #     topics = ["fashion", "tech", "beauty", "lifestyle"]
+    #     post = f"New trend in {np.random.choice(topics)}! " + \
+    #            f"Limited {np.random.choice(['discount','deal','offer'])} available!"
+    #     return TextBlob(post).noun_phrases
 
 class AdBotAgent(Agent):
     def __init__(self, model):
