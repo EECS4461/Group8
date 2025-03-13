@@ -3,9 +3,12 @@
 1. **Install Dependencies**
 
 ```bash
-#Python >= 3.10
 pip install -r requirements.txt
+
+# Python >= 3.10 
+# Python 版本大于3.10
 # python -m textblob.download_corpora
+# Textblob NLP 文本检测（暂时已弃用）
 ```
 
 2. **Run the Application**
