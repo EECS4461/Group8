@@ -37,14 +37,11 @@ jobs:
       run: |
         #conda install pytest
         #pytest
-        solara run ./src/demo_01.py
+        timeout 30s solara run ./src/demo_01.py
     - name: Exit job
         run: |
         exit 0
 
     - name: Test with demo_02
       run: |
-        solara run ./src/demo_02.py             
-    - name: Exit job
-        run: |
-        exit 0
+        timeout 30s solara run ./src/demo_02.py
