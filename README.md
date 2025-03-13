@@ -7,7 +7,7 @@
 ```bash
 git clone https://github.com/EECS4461/Group8.git
 cd Group8
-pip install-rrequirements.txt
+pip install-r requirements.txt
 ```
 
 2.**Run the Application**
