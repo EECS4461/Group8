@@ -18,7 +18,7 @@ pip install -r requirements.txt
 
 ```bash
 
-solara run./scr/demo_01.py
+solara run./src/demo_01.py
 
 ```
 
@@ -28,7 +28,7 @@ solara run./scr/demo_01.py
 
 ```bash
 
-solara run./scr/demo_02.py
+solara run./src/demo_02.py
 
 ```
 
