@@ -46,20 +46,19 @@ class AdBotAgent(Agent):
         neighbors = self.model.space.get_neighbors(self.position, 10) # Removed agent_type argument
         posts = [agent for agent in neighbors if isinstance(agent, OriginalPostAgent)] # Filter manually
         if posts:
-            self.target_post = max(posts, key=lambda p: len(p.keywords))
+            self.target_post = max(posts, key=lambda p: p.base_heat * np.random.rand())
             self.generate_ad()
             return True
         return False
 
     def generate_ad(self):
-        keywords = self.target_post.keywords
-        template = [
-            "Check our {} collection!",
-            "Best {} deals here!",
-            "Limited {} offer!"
-        ]
-        self.ad_content = np.random.choice(template).format(
-            ', '.join(keywords[:2]))
+        if self.target_post:
+            template = [
+                "Check our amazing collection!",
+                "Best deals here!",
+                "Limited offer available!"
+            ]
+            self.ad_content = np.random.choice(template)
 
     def move(self):
         if self.target_post:
@@ -67,6 +66,8 @@ class AdBotAgent(Agent):
             if np.linalg.norm(target_vec) > 0:
                 direction = target_vec / np.linalg.norm(target_vec)
                 self.position = tuple(np.array(self.position) + direction * self.speed)
+        else:
+            self.position = tuple(np.array(self.position) + np.random.uniform(-0.5, 0.5, 2))
 
     def step(self):
         if not self.target_post and not self.find_target():
@@ -103,7 +104,6 @@ class ShillBotAgent(Agent):
         if not shill_neighbors: # Handle case where there are no ShillBotAgent neighbors
             return np.array([0, 0]) # Or return a zero vector, indicating no flocking influence
 
-
         # 分离向量
         sep_vec = -np.mean(positions - self.position, axis=0)
 
@@ -115,6 +115,9 @@ class ShillBotAgent(Agent):
 
         return self.weights[0]*sep_vec + self.weights[1]*ali_vec + self.weights[2]*coh_vec
 
+    def move(self):
+        self.position = tuple(np.array(self.position) + np.random.uniform(-0.5, 0.5, 2))
+
     def step(self):
         self.update_weights()
         neighbors = self.model.space.get_neighbors(self.position, 10)
@@ -125,6 +128,7 @@ class ShillBotAgent(Agent):
         self.position = tuple(np.clip(self.position,
                                         [d[0] for d in SPACE_DIMENSIONS.values()],
                                         [d[1] for d in SPACE_DIMENSIONS.values()]))
+        self.move()
 
 class UserAgent(Agent):
     def __init__(self, model):
@@ -153,9 +157,11 @@ class UserAgent(Agent):
         )
         self.trust *= 0.99 if ad_influence > 2 else 1.01
 
+    def move(self):
+        self.position = tuple(np.array(self.position) + np.random.uniform(-0.5, 0.5, 2))
+
     def step(self):
-        self.position = tuple(np.array(self.position) +
-                                    np.random.uniform(-0.5, 0.5, 2)) # 修正为 2D 随机移动
+        self.move()
         self.update_emotion()
 
 class PlatformAI:
@@ -189,6 +195,9 @@ class PlatformAI:
             if isinstance(agent, AdBotAgent) and label != -1:
                 agent.speed *= 0.7
                 agent.cluster_size = max(1, agent.cluster_size-2)
+                if np.random.rand() < 0.1:  # 10% chance to remove the AdBotAgent
+                    self.model.space.remove_agent(agent)
+                    self.model.agents.remove(agent)
 
 class SocialMediaModel(Model):
     def __init__(self, **kwargs):
