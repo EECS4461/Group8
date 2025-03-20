@@ -1,0 +1,28 @@
+## Instruction for running demo
+
+1.**Install Dependencies**
+Python >= 3.10
+```bash
+git clone https://github.com/EECS4461/Group8.git
+cd Group8
+pip install -r requirements.txt
+```
+
+2.**Run the Application**
+
+- demo_01 with datacollect chart
+
+```bash
+
+solara run./src/demo_01.py
+
+```
+
+- demo_02 Agents in different colors and shapes
+
+
+```bash
+
+solara run./src/demo_02.py
+
+```

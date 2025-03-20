@@ -1,38 +1,5 @@
 # Social Bot Simulation on Xiaohongshu
 
-## 运行说明
-
-1.**Install Dependencies**
-Python >= 3.10
-```bash
-git clone https://github.com/EECS4461/Group8.git
-cd Group8
-pip install -r requirements.txt
-```
-
-2.**Run the Application**
-
-- demo_01 with datacollect chart
-
-  该示例演示了数据收集的统计表
-
-```bash
-
-solara run./src/demo_01.py
-
-```
-
-- demo_02 Agents in different colors and shapes
-
-  该示例演示了给不同的代理定义形状和颜色
-
-```bash
-
-solara run./src/demo_02.py
-
-```
-
-
 ABM-based simulation of coordinated bot activities in e-commerce social platforms.
 Deliverable Documents are in `\docs`, while adapted measa modeling in `mesa-model`.
 

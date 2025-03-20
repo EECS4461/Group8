@@ -1,6 +1,6 @@
 # Bots vs Guardians: Simulating Audit on Xiaohongshu (RedNote)
 
-##### **§1. Phenomenon Overview (515 words)**
+## **§1. Phenomenon Overview (515 words)**
 
 Social media platforms face escalating threats from automated bots that shape content visibility, engagement metrics, and user interactions. Xiaohongshu (RedNote), a hybrid e-commerce and social networking platform, exemplifies this vulnerability due to its reliance on recommendation algorithms and community-driven curation. Our study specifically explores adversarial interactions between coordinated social bots, human users, and auditing AI (Guardians) to address three critical gaps in existing research:
 
@@ -23,19 +23,19 @@ Initial simulations provide early visual evidence of these interactions:
 
 These preliminary visualizations align closely with observed real-world dynamics in Xiaohongshu, where bots systematically coordinate activities, auditing mechanisms intervene based on behavioural detection, and human interactions respond dynamically to artificially manipulated content.
 
-##### **§2. Simulation Design & Implementation (\~500 words)**
+## **§2. Simulation Design & Implementation (\~500 words)**
 
-	Our simulation is built on Mesa, a Python-based agent-based modelling framework, and captures Xiaohongshu’s core dynamics through a three-layer hybrid environment:
+> Our simulation is built on Mesa, a Python-based agent-based modelling framework, and captures Xiaohongshu’s core dynamics through a three-layer hybrid environment:
 
 * Social Graph Layer: A scale-free network (Barabási-Albert model) representing user and bot connectivity, simulating preferential attachment in content interactions (Wang et al., 2023).  
 * Content Space Layer: A 50×50 grid with a Moore neighbourhood structure, where engagement and diffusion dynamics unfold, incorporating heat decay mechanisms inspired by Sugarscape models.  
 * Audit Interface Layer: A temporal graph convolutional network (GCN) that updates edge weights every Δt=6 hours to detect bot anomalies adaptively (Chen, 2023).
 
-##### **§3. Preliminary Observations & Results (\~500 words)**
+## **§3. Preliminary Observations & Results (\~500 words)**
 
-	Early simulation results have provided valuable insights into the dynamics between bots, human users, and auditing AI within the Xiaohongshu ecosystem. Our initial runs have largely validated the model’s ability to reproduce key phenomena while also revealing unexpected emergent behaviours that warrant further investigation.
+> Early simulation results have provided valuable insights into the dynamics between bots, human users, and auditing AI within the Xiaohongshu ecosystem. Our initial runs have largely validated the model’s ability to reproduce key phenomena while also revealing unexpected emergent behaviours that warrant further investigation.
 
-##### **§4. Challenges & Next Steps (\~500 words)**
+## **§4. Challenges & Next Steps (\~500 words)**
 
 The development of our simulation has encountered several significant challenges that have influenced both the design and early results. One of the primary difficulties has been achieving a realistic balance in the activation patterns of bot agents. Initially, bots tended to act in overly synchronized bursts, resulting in interaction patterns that did not accurately reflect the asynchronous nature of real-world social media activity. To address this, we introduced a staggered activation mechanism with random delays, which improved the naturalness of bot interactions; however, fine-tuning these delays remains an ongoing challenge.  
 Another major challenge has been optimizing the performance of the Guardian AI. Although the auditing AI demonstrated strong overall performance, its responsiveness to rapid shifts in bot strategies was sometimes insufficient. Adjustments to the reinforcement learning parameters and threshold updates have yielded mixed results—increasing detection sensitivity often led to higher false positive rates. Balancing these trade-offs requires further experimentation and may benefit from integrating additional deep-learning techniques.  
@@ -44,11 +44,11 @@ Looking ahead to the final report, several areas require further development and
 
 In summary, while the current model demonstrates promising capabilities in replicating the complex interactions between bot and human users and auditing AI, addressing the identified challenges is crucial. By focusing on these refinements, we expect to significantly enhance both the simulation's fidelity and the emergent behaviours' robustness, thereby providing stronger empirical support for our theoretical framework in the final report.
 
-##### **§6. References**
+## **§6. References**
 
 Chen, S., Feng, S., Liang, S., Zong, C.-C., Li, J., & Li, P. (2024, June 3). *CACL: Community-aware heterogeneous graph contrastive learning for social media bot detection*. arXiv.org. https://arxiv.org/abs/2405.10558  
 iResearch. (2023, May). *China Consumer Insights White Book 2023\.* https://report.iresearch.cn/report\_pdf.aspx?id=4257  
 Wang, X., Zheng, Q., Zheng, K., Sui, Y., Cao, S., & Shi, Y. (2021, June 13). *Detecting social media bots with variational AutoEncoder and K-nearest neighbor*. MDPI. https://www.mdpi.com/2076-3417/11/12/5482
 
-**§7. Attestation**
+## **§7. Attestation**
 
