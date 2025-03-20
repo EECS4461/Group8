@@ -1,32 +1,9 @@
-import os
-import sys
 import numpy as np
+from mesa.visualization import SolaraViz, make_space_component, make_plot_component, Slider
+from mesa.visualization.components import SpaceMatplotlib
 
-from matplotlib.markers import MarkerStyle
-
-sys.path.insert(0, os.path.abspath("../../../.."))
-
-from mesa.visualization import Slider, SolaraViz, make_space_component
-from agents import OriginPost, AdBotAgent, ShillBotAgent, UserAgent
 from model import SocialMediaModel
-
-# 预计算不同图标的缓存
-MARKER_CACHE = {}
-# 为原始帖子创建圆形标记
-marker_post = MarkerStyle('o')
-MARKER_CACHE['post'] = marker_post
-
-# 为广告机器人创建三角形标记
-marker_ad = MarkerStyle('^')
-MARKER_CACHE['ad'] = marker_ad
-
-# 为水军机器人创建方形标记
-marker_shill = MarkerStyle('s')
-MARKER_CACHE['shill'] = marker_shill
-
-# 为用户创建菱形标记
-marker_user = MarkerStyle('D')
-MARKER_CACHE['user'] = marker_user
+from agents import OriginPost, AdBotAgent, ShillBotAgent, UserAgent
 
 
 def agent_portrayal(agent):
@@ -35,77 +12,72 @@ def agent_portrayal(agent):
         # 根据热度调整颜色深浅
         heat_color = min(1.0, agent.heat / 50.0)
         return {
-            "color": [1.0, 0.6 * (1 - heat_color), 0.6 * (1 - heat_color)],
+            "color": "red",  # 使用字符串颜色名称
             "size": 25,
-            "marker": MARKER_CACHE['post'],
+            "marker": "s",  # 使用字符串标记 (square)
             "layer": 0,
         }
     elif isinstance(agent, AdBotAgent):
         return {
             "color": "blue",
             "size": 15,
-            "marker": MARKER_CACHE['ad'],
+            "marker": "^",  # 使用字符串标记 (triangle up)
             "layer": 1,
         }
     elif isinstance(agent, ShillBotAgent):
         return {
             "color": "orange",
             "size": 15,
-            "marker": MARKER_CACHE['shill'],
+            "marker": "v",  # 使用字符串标记 (triangle down)
             "layer": 1,
         }
     elif isinstance(agent, UserAgent):
         # 根据engagement和trust调整颜色
         engagement_color = min(1.0, agent.engagement)
         return {
-            "color": [0.2, 0.6, 0.2 + 0.4 * engagement_color],
+            "color": "green",
             "size": 15,
-            "marker": MARKER_CACHE['user'],
+            "marker": "o",  # 使用字符串标记 (circle)
             "layer": 1,
         }
 
 
+# 创建空间组件
+space_component = SpaceMatplotlib(agent_portrayal, 500, 500)
+
+# 创建图表组件
+plot_heat_component = make_plot_component(
+    ["Average Post Heat"],
+    "帖子热度随时间变化",
+    "matplotlib"
+)
+
+plot_bots_component = make_plot_component(
+    ["Active Bots"],
+    "活跃机器人数量随时间变化",
+    "matplotlib"
+)
+
+# 模型参数
 model_params = {
-    "num_posts": Slider(
-        label="num_op",
-        value=5,
-        min=1,
-        max=20,
-        step=1,
-    ),
-    "num_ads": Slider(
-        label="num_ads",
-        value=10,
-        min=0,
-        max=50,
-        step=5,
-    ),
-    "num_shills": Slider(
-        label="num_shills",
-        value=15,
-        min=0,
-        max=50,
-        step=5,
-    ),
-    "num_users": Slider(
-        label="num_users",
-        value=20,
-        min=5,
-        max=100,
-        step=5,
-    ),
-    "width": 100,
-    "height": 100,
+    "num_op": Slider("Original Posts", 20, 10, 100, 1),
+    "num_ads": Slider("Ad Bots", 30, 10, 100, 1),
+    "num_shills": Slider("Shill Bots", 50, 10, 200, 5),
+    "num_users": Slider("Users", 100, 50, 300, 10),
+    "detection": Slider("Detection", 0.5, 0.1, 1.0, 0.1)
 }
 
-# 创建模型实例
 model = SocialMediaModel()
 
-# 创建可视化页面
-page = SolaraViz(
+# 创建SolaraViz实例 - 使用新的参数结构
+viz = SolaraViz(
     model,
-    components=[make_space_component(agent_portrayal=agent_portrayal, backend="matplotlib")],
+    components=[space_component, plot_bots_component, plot_heat_component],
     model_params=model_params,
-    name="redNote ADBot Simulation",
+    name="rednote ADbot Simulation"
 )
-page  # noqa
+
+# 最后返回可视化对象
+viz  # noqa
+# Added Page variable for SolaraViz page export
+Page = viz
