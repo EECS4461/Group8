@@ -1,92 +1,113 @@
-"""A Boid (bird-oid) agent for implementing Craig Reynolds's Boids flocking model.
-
-This implementation uses numpy arrays to represent vectors for efficient computation
-of flocking behavior.
-"""
-
+from mesa import Agent
 import numpy as np
 
-from mesa.experimental.continuous_space import ContinuousSpaceAgent
 
+class OriginPost(Agent):
+    """代表一个静态的原始帖子，记录交互热度和点赞量。"""
 
-class Boid(ContinuousSpaceAgent):
-    """A Boid-style flocker agent.
-
-    The agent follows three behaviors to flock:
-        - Cohesion: steering towards neighboring agents
-        - Separation: avoiding getting too close to any other agent
-        - Alignment: trying to fly in the same direction as neighbors
-
-    Boids have a vision that defines the radius in which they look for their
-    neighbors to flock with. Their speed (a scalar) and direction (a vector)
-    define their movement. Separation is their desired minimum distance from
-    any other Boid.
-    """
-
-    def __init__(
-        self,
-        model,
-        space,
-        position=(0, 0),
-        speed=1,
-        direction=(1, 1),
-        vision=1,
-        separation=1,
-        cohere=0.03,
-        separate=0.015,
-        match=0.05,
-    ):
-        """Create a new Boid flocker agent.
-
-        Args:
-            model: Model instance the agent belongs to
-            speed: Distance to move per step
-            direction: numpy vector for the Boid's direction of movement
-            vision: Radius to look around for nearby Boids
-            separation: Minimum distance to maintain from other Boids
-            cohere: Relative importance of matching neighbors' positions (default: 0.03)
-            separate: Relative importance of avoiding close neighbors (default: 0.015)
-            match: Relative importance of matching neighbors' directions (default: 0.05)
-        """
-        super().__init__(space, model)
-        self.position = position
-        self.speed = speed
-        self.direction = direction
-        self.vision = vision
-        self.separation = separation
-        self.cohere_factor = cohere
-        self.separate_factor = separate
-        self.match_factor = match
-        self.neighbors = []
-        self.angle = 0.0  # represents the angle at which the boid is moving
+    def __init__(self, unique_id, model, pos, base_heat=10):
+        super().__init__(model)  # 只传递 model 参数
+        self.unique_id = unique_id  # 手动设置 unique_id
+        self.pos = pos
+        self.heat = base_heat
 
     def step(self):
-        """Get the Boid's neighbors, compute the new vector, and move accordingly."""
-        neighbors, distances = self.get_neighbors_in_radius(radius=self.vision)
-        self.neighbors = [n for n in neighbors if n is not self]
+        # 根据机器人、用户的互动动态调整热度
+        self.heat = max(0, self.heat)  # 防止负值，保持非负数
 
-        # If no neighbors, maintain current direction
-        if not neighbors:
-            self.position += self.direction * self.speed
-            return
 
-        delta = self.space.calculate_difference_vector(self.position, agents=neighbors)
+class AdBotAgent(Agent):
+    """广告机器人，吸附到热点帖子并增加热度，同时吸引ShillBots。"""
 
-        cohere_vector = delta.sum(axis=0) * self.cohere_factor
-        separation_vector = (
-            -1 * delta[distances < self.separation].sum(axis=0) * self.separate_factor
-        )
-        match_vector = (
-            np.asarray([n.direction for n in neighbors]).sum(axis=0) * self.match_factor
-        )
+    def __init__(self, unique_id, model, pos, speed=1):
+        super().__init__(model)  # 只传递 model 参数
+        self.unique_id = unique_id  # 手动设置 unique_id
+        self.pos = np.array(pos)
+        self.speed = speed
+        self.target_post = None  # 瞄准目标原始帖子
 
-        # Update direction based on the three behaviors
-        self.direction += (cohere_vector + separation_vector + match_vector) / len(
-            neighbors
-        )
+    def find_target(self):
+        # 搜索范围内的最近OriginPost
+        posts = [agent for agent in self.model.agents if isinstance(agent, OriginPost)]
+        if posts:
+            self.target_post = min(posts, key=lambda p: np.linalg.norm(self.pos - np.array(p.pos)))
 
-        # Normalize direction vector
-        self.direction /= np.linalg.norm(self.direction)
+    def move(self):
+        # 移动逻辑，向目标前进
+        if self.target_post:
+            direction = np.array(self.target_post.pos) - self.pos
+            distance = np.linalg.norm(direction)
+            if distance > 0:
+                direction /= distance
+            self.pos += direction * self.speed
+            self.pos = np.clip(self.pos, 0, self.model.space.width)
 
-        # Move boid
-        self.position += self.direction * self.speed
+    def step(self):
+        if not self.target_post or np.linalg.norm(self.pos - np.array(self.target_post.pos)) < 1:
+            self.find_target()
+        self.move()
+        # 增加目标帖子的热度
+        if self.target_post:
+            self.target_post.heat += 5
+
+
+class ShillBotAgent(Agent):
+    """水军机器人，跟随广告机器人行动，同时模拟点踩行为。"""
+
+    def __init__(self, unique_id, model, pos, speed=1):
+        super().__init__(model)  # 只传递 model 参数
+        self.unique_id = unique_id  # 手动设置 unique_id
+        self.pos = np.array(pos)
+        self.speed = speed
+        self.target = None
+
+    def find_target(self):
+        # 寻找附近的AdBot或热门帖子
+        adbots = [agent for agent in self.model.agents if isinstance(agent, AdBotAgent)]
+        if adbots:
+            self.target = min(adbots, key=lambda a: np.linalg.norm(self.pos - np.array(a.pos)))
+
+    def move(self):
+        if self.target:
+            direction = np.array(self.target.pos) - self.pos
+            distance = np.linalg.norm(direction)
+            if distance > 0:
+                direction /= distance
+            self.pos += direction * self.speed
+            self.pos = np.clip(self.pos, 0, self.model.space.width)
+
+    def step(self):
+        self.find_target()
+        self.move()
+
+
+class UserAgent(Agent):
+    """用户代理，可能被广告机器人和ShillBots欺骗，增加交互热度。"""
+
+    def __init__(self, unique_id, model, pos, engagement=0.5):
+        super().__init__(model)  # 只传递 model 参数
+        self.unique_id = unique_id  # 手动设置 unique_id
+        self.pos = np.array(pos)
+        self.engagement = engagement  # 初始交互程度
+        self.trust = 0.5  # 用户的初始信任
+
+    def move(self):
+        # 随机游走
+        # 修正随机游走的实现方式
+        x_move = self.model.random.uniform(-1, 1)
+        y_move = self.model.random.uniform(-1, 1)
+        self.pos += np.array([x_move, y_move])
+        self.pos = np.clip(self.pos, 0, self.model.space.width)
+
+    def update_engagement(self):
+        # 如果附近有吸附的ShillBot，欺骗用户增加engagement
+        nearby_shills = [
+            agent for agent in self.model.agents
+            if isinstance(agent, ShillBotAgent) and np.linalg.norm(self.pos - agent.pos) < 5
+        ]
+        if nearby_shills:
+            self.engagement += 0.1  # 增加交互度
+
+    def step(self):
+        self.move()
+        self.update_engagement()

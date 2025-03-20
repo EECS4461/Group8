@@ -1,110 +1,46 @@
-"""
-Boids Flocking Model
-===================
-A Mesa implementation of Craig Reynolds's Boids flocker model.
-Uses numpy arrays to represent vectors.
-"""
-
-import os
-import sys
-
-sys.path.insert(0, os.path.abspath("../../../.."))
-
-
-import numpy as np
-
 from mesa import Model
-from mesa.examples.basic.boid_flockers.agents import Boid
-from mesa.experimental.continuous_space import ContinuousSpace
+from mesa.space import ContinuousSpace
+from agents import OriginPost, AdBotAgent, ShillBotAgent, UserAgent
 
 
-class BoidFlockers(Model):
-    """Flocker model class. Handles agent creation, placement and scheduling."""
+class SocialMediaModel(Model):
+    """模拟代理模型，包括AdBots、ShillBots、UserAgent以及对OriginPost的操作。"""
 
-    def __init__(
-        self,
-        population_size=100,
-        width=100,
-        height=100,
-        speed=1,
-        vision=10,
-        separation=2,
-        cohere=0.03,
-        separate=0.015,
-        match=0.05,
-        seed=None,
-    ):
-        """Create a new Boids Flocking model.
+    def __init__(self, num_posts=5, num_ads=10, num_shills=15, num_users=20, width=100, height=100):
+        super().__init__()
+        self.space = ContinuousSpace(width, height, True)
 
-        Args:
-            population_size: Number of Boids in the simulation (default: 100)
-            width: Width of the space (default: 100)
-            height: Height of the space (default: 100)
-            speed: How fast the Boids move (default: 1)
-            vision: How far each Boid can see (default: 10)
-            separation: Minimum distance between Boids (default: 2)
-            cohere: Weight of cohesion behavior (default: 0.03)
-            separate: Weight of separation behavior (default: 0.015)
-            match: Weight of alignment behavior (default: 0.05)
-            seed: Random seed for reproducibility (default: None)
-        """
-        super().__init__(seed=seed)
-        self.agent_angles = np.zeros(
-            population_size
-        )  # holds the angle representing the direction of all agents at a given step
+        # 添加原始帖子
+        for i in range(num_posts):
+            # 为每个维度单独生成随机值
+            x = self.random.uniform(0, width)
+            y = self.random.uniform(0, height)
+            post = OriginPost(i, self, pos=(x, y))
+            self.space.place_agent(post, post.pos)
 
-        # Set up the space
-        self.space = ContinuousSpace(
-            [[0, width], [0, height]],
-            torus=True,
-            random=self.random,
-            n_agents=population_size,
-        )
+        # 创建广告机器人
+        start_id = num_posts
+        for i in range(num_ads):
+            x = self.random.uniform(0, width)
+            y = self.random.uniform(0, height)
+            adbot = AdBotAgent(start_id + i, self, pos=(x, y))
+            self.space.place_agent(adbot, adbot.pos)
 
-        # Create and place the Boid agents
-        positions = self.rng.random(size=(population_size, 2)) * self.space.size
-        directions = self.rng.uniform(-1, 1, size=(population_size, 2))
-        Boid.create_agents(
-            self,
-            population_size,
-            self.space,
-            position=positions,
-            direction=directions,
-            cohere=cohere,
-            separate=separate,
-            match=match,
-            speed=speed,
-            vision=vision,
-            separation=separation,
-        )
+        # 创建水军机器人
+        start_id += num_ads
+        for i in range(num_shills):
+            x = self.random.uniform(0, width)
+            y = self.random.uniform(0, height)
+            shill = ShillBotAgent(start_id + i, self, pos=(x, y))
+            self.space.place_agent(shill, shill.pos)
 
-        # For tracking statistics
-        self.average_heading = None
-        self.update_average_heading()
-
-    # vectorizing the calculation of angles for all agents
-    def calculate_angles(self):
-        d1 = np.array([agent.direction[0] for agent in self.agents])
-        d2 = np.array([agent.direction[1] for agent in self.agents])
-        self.agent_angles = np.degrees(np.arctan2(d1, d2))
-        for agent, angle in zip(self.agents, self.agent_angles):
-            agent.angle = angle
-
-    def update_average_heading(self):
-        """Calculate the average heading (direction) of all Boids."""
-        if not self.agents:
-            self.average_heading = 0
-            return
-
-        headings = np.array([agent.direction for agent in self.agents])
-        mean_heading = np.mean(headings, axis=0)
-        self.average_heading = np.arctan2(mean_heading[1], mean_heading[0])
+        # 创建用户代理
+        start_id += num_shills
+        for i in range(num_users):
+            x = self.random.uniform(0, width)
+            y = self.random.uniform(0, height)
+            user = UserAgent(start_id + i, self, pos=(x, y))
+            self.space.place_agent(user, user.pos)
 
     def step(self):
-        """Run one step of the model.
-
-        All agents are activated in random order using the AgentSet shuffle_do method.
-        """
         self.agents.shuffle_do("step")
-        self.update_average_heading()
-        self.calculate_angles()
