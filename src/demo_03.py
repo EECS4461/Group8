@@ -439,7 +439,7 @@ viz = SolaraViz(
     model,
     components=[space_component, plot_component],
     model_params=model_params,
-    name="Social Media Bot Simulation"
+    name="redNote ADBot Simulation"
 )
 
 # 最后返回可视化对象

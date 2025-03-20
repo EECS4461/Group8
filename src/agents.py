@@ -1,8 +1,8 @@
 from mesa import Agent
 import numpy as np
+from mesa.experimental.continuous_space import ContinuousSpaceAgent
 
-
-class OriginPost(Agent):
+class OriginPost(ContinuousSpaceAgent):
     """代表一个静态的原始帖子，记录交互热度和点赞量。"""
 
     def __init__(self, unique_id, model, pos, base_heat=10):
