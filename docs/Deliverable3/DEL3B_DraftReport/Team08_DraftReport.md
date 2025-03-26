@@ -113,3 +113,6 @@ iResearch. (2023, May). *China Consumer Insights White Book 2023\.* https://repo
 Wang, X., Zheng, Q., Zheng, K., Sui, Y., Cao, S., & Shi, Y. (2021, June 13). *Detecting social media bots with variational AutoEncoder and K-nearest neighbor*. MDPI. https://www.mdpi.com/2076-3417/11/12/5482
 
 ## **§7. Attestation**
+Xintong (Sylvia) Ling: Conceptualization, Project administration, Supervision, Investigation, Writing – original draft
+
+Huanrui Cao: Data curation, Visualization, Validation, Resources, Investigation, Methodology, Formal analysis, Writing – review & editing
