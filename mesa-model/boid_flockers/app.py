@@ -38,7 +38,7 @@ model_params = {
         "label": "Random Seed",
     },
     "population_size": Slider(
-        label="Number of boids",
+        label="Number of ADBots",
         value=100,
         min=10,
         max=200,
@@ -47,21 +47,21 @@ model_params = {
     "width": 100,
     "height": 100,
     "speed": Slider(
-        label="Speed of Boids",
+        label="Detections",
         value=5,
         min=1,
         max=20,
         step=1,
     ),
     "vision": Slider(
-        label="Vision of Bird (radius)",
+        label="Numbers of HumanAgent",
         value=10,
         min=1,
         max=50,
         step=1,
     ),
     "separation": Slider(
-        label="Minimum Separation",
+        label="Agent Behaviors",
         value=2,
         min=1,
         max=20,
@@ -75,6 +75,6 @@ page = SolaraViz(
     model,
     components=[make_space_component(agent_portrayal=boid_draw, backend="matplotlib")],
     model_params=model_params,
-    name="Boid Flocking Model",
+    name="redNote Agent Design",
 )
 page  # noqa

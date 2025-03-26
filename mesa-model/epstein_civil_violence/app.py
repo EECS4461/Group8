@@ -51,17 +51,18 @@ model_params = {
     },
     "height": 40,
     "width": 40,
-    "citizen_density": Slider("Initial Agent Density", 0.7, 0.0, 0.9, 0.1),
-    "cop_density": Slider("Initial Cop Density", 0.04, 0.0, 0.1, 0.01),
-    "citizen_vision": Slider("Citizen Vision", 7, 1, 10, 1),
-    "cop_vision": Slider("Cop Vision", 7, 1, 10, 1),
-    "legitimacy": Slider("Government Legitimacy", 0.82, 0.0, 1, 0.01),
-    "max_jail_term": Slider("Max Jail Term", 30, 0, 50, 1),
+    "citizen_density": Slider("ADBotAgent", 0.7, 0.0, 0.9, 0.1),
+    "cop_density": Slider("HumanUserAgent", 0.04, 0.0, 0.1, 0.01),
+    "citizen_vision": Slider("RecommendationSystem", 7, 1, 10, 1),
+    "cop_vision": Slider("ModAIAgent", 7, 1, 10, 1),
+    "legitimacy": Slider("HybridSpace", 0.82, 0.0, 1, 0.01),
+    "max_jail_term": Slider("ShillBot", 30, 0, 50, 1),
 }
 
 space_component = make_space_component(
     citizen_cop_portrayal, post_process=post_process, draw_grid=False
 )
+transform_state_name = lambda state: "detected" if state.name.lower() == "arrested" else state.name.lower()
 
 chart_component = make_plot_component(
     {state.name.lower(): agent_colors[state] for state in CitizenState}
@@ -73,6 +74,6 @@ page = SolaraViz(
     epstein_model,
     components=[space_component, chart_component],
     model_params=model_params,
-    name="Epstein Civil Violence",
+    name="redNote Simulation GridSpace",
 )
 page  # noqa
