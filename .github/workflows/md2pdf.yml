@@ -40,6 +40,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y pandoc texlive-xetex
+          npm i -g mermaid-filter
 
       - name: Convert Markdown to PDF
         run: |
@@ -51,6 +52,7 @@ jobs:
                 --pdf-engine=xelatex \
                 -V geometry:margin=1in \
                 -V fontsize=11pt \
+                -F mermaid-filter
                 -o "$dirpath/$filename.pdf"
             fi
           done
