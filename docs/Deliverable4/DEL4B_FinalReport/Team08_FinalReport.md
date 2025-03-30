@@ -19,4 +19,11 @@ graph TD
     D -->|Yes| E[Mark for Deletion]
     D -->|No| F[Continue Survival]
 ```
+### Table Test
 
+| Parameter                  | Type             | Description                                      |
+|----------------------------|------------------|--------------------------------------------------|
+| `Global Detection Base η₀` | Environment Variable | Base detection probability (0.1-0.9)             |
+| `Time Sensitivity α`       | Environment Variable | Coefficient for ad survival time impact (default 0.05) |
+| `Popularity Penalty β`     | Environment Variable | Coefficient for like growth penalty (default 0.02)     |
+| `Coordination Penalty γ`   | Environment Variable | Coefficient for shill density penalty (default 0.01)   |
