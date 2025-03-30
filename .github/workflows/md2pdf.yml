@@ -53,7 +53,7 @@ jobs:
                 --pdf-engine=xelatex \
                 -V geometry:margin=1in \
                 -V fontsize=11pt \
-                -o "$dirpath/$filename.pdf" \
+                -o "$dirpath/$filename.pdf"
             fi
           done
 
