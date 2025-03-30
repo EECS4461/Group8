@@ -116,8 +116,8 @@
 * Red nodes: Represent original content.  
 * Blue nodes: Indicate advertisement posts.
 
-**![][image1]**  
-**![][image2]**
+![1](https://github.com/user-attachments/assets/82989cff-1c68-4505-83d9-431496d3d9c0)
+![2](https://github.com/user-attachments/assets/82989cff-1c68-4505-83d9-431496d3d9c0)
 
 * **Unexpected Behavior and Emergence Dynamics：**  
 * Although we anticipated during model design that the robotic agents would gradually adjust their strategies as the detection mechanisms of the auditing AI were optimized, we observed some unexpected behavioral patterns.  
