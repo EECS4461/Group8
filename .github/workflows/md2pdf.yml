@@ -39,7 +39,9 @@ jobs:
       - name: Install Pandoc and Dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y pandoc texlive-xetex
+          sudo apt-get install -y pandoc nodejs texlive-xetex 
+          npm update
+          npm i -g mermaid-filter
 
       - name: Convert Markdown to PDF
         run: |
@@ -51,7 +53,7 @@ jobs:
                 --pdf-engine=xelatex \
                 -V geometry:margin=1in \
                 -V fontsize=11pt \
-                -o "$dirpath/$filename.pdf"
+                -o "$dirpath/$filename.pdf" \
             fi
           done
 
