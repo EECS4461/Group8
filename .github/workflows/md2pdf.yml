@@ -3,6 +3,7 @@ name: Convert Markdown to PDF
 on:
   push:
     paths:
+      - '.github/workflows/md2pdf.yml'
       - 'docs/Deliverable1/Team*_TopicIdea.md'
       - 'docs/Deliverable1/Team*_TeamExpectations.md'
       - 'docs/Deliverable2/DEL2B_Proposal/Team*_ProjectProposal.md'
@@ -10,6 +11,7 @@ on:
       - 'docs/Deliverable4/DEL4B_FinalReport/Team*_FinalReport.md'
   pull_request:
     paths:
+      - '.github/workflows/md2pdf.yml'
       - 'docs/Deliverable1/Team*_TopicIdea.md'
       - 'docs/Deliverable1/Team*_TeamExpectations.md'
       - 'docs/Deliverable2/DEL2B_Proposal/Team*_ProjectProposal.md'
@@ -35,7 +37,9 @@ jobs:
           git reset --hard origin/main 
 
       - name: Install Pandoc and Dependencies
-        run: sudo apt-get install -y pandoc texlive-xetex
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc texlive-xetex
 
       - name: Convert Markdown to PDF
         run: |
