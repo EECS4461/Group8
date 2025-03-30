@@ -1,5 +1,5 @@
 .DS_Store
-docs/Deliverable*/*.pdf
+
 mesa-model/boid_flockers/__pycache__/__init__.cpython-312.pyc
 mesa-model/boid_flockers/__pycache__/agents.cpython-312.pyc
 mesa-model/boid_flockers/__pycache__/model.cpython-312.pyc
