@@ -1,4 +1,4 @@
-§1. Phenomenon Overview
+## §1. Phenomenon Overview
 
 * **Phenomenon**:  
 * The rapid proliferation of automated accounts, or bots, in online platforms has significantly transformed digital interactions, raising concerns about misinformation, content manipulation, and the robustness of content moderation systems (Luo et al., 2023). Recent studies highlight the growing sophistication of AI-driven bots, particularly their ability to mimic human behavior and evade detection mechanisms (Ferrara, 2023). These bots interfere with the platform's ecology through keyword triggering, collaborative dialog faking, and dynamic detection evasion.On platforms such as RedNote, bots are faking fake buzz by manipulating likes and comments to boost the exposure of advertised posts. This phenomenon essentially reflects a typical scenario of AI technology abuse: the escalating technological confrontation between malicious AI (bots) and defensive AI (Guardian AI), the so-called “algorithmic arms race” (Pham et al., 2024).Our project investigates the dynamics of AI-to-AI interactions within the context of content moderation, focusing on the strategies employed by automated systems to counteract malicious bot activity (Raees et al., 2024).  
@@ -17,7 +17,7 @@
   * Stage 5: The confrontation between bots and platform AI enters a new phase, where platform AI optimizes its algorithms to adapt to changing bot strategies, while bots attempt to leverage user interaction data to simulate normal user behavior.  
 * This evolution clearly demonstrates the trend of AI confrontation in the social media ecosystem and the need for future regulatory strategies to constantly adapt to this dynamic change in order to effectively curb the proliferation of disinformation.
 
-* **§2. Simulation Design & Implementation**  
+## **§2. Simulation Design & Implementation**  
 * **System Overview**:   
 * The central goal of this research is to model the confrontation between automated bots and platform AI on social media platforms, aiming to study their dynamic behavior in the information ecosystem. The dynamic confrontation in the model is reflected in the fact that the bots constantly adjust their strategies to bypass detection, while the platform AI optimizes its algorithms to improve recognition. The emergence of this phenomenon mimics the challenges of content censorship in reality. The core components of the system include three main agents: the Bot Agent, the Review AI Agent (ModAIAgent), and the Real User Agent (HumanUserAgent). In addition, the recommender system dynamically adjusts the visibility of the content, which in turn affects the interaction and information dissemination among the agents. The simulation employs the Mesa framework for agent modeling and visualization; the spatial structure of the model uses GridSpace for compatibility with Mesa's visualization tools, and simulates the geographic location of agents and their interaction patterns in social platforms.
 
@@ -75,7 +75,7 @@
   * Heatmaps: to show the distribution of detection efficiency of platform AI.  
 * Through these analyses, we can reveal the dynamic confrontation process between bot and platform AI, and provide optimization suggestions for the content regulation strategy of social media platforms.  
     
-* **§3. Observations & Results**  
+## **§3. Observations & Results**  
 * **Visualization of the simulation phenomenon**  
 * The results show that in the process of continuous strategy optimization, the interaction between the bot agent and the human user agent generates some complex emergent behaviors, which gradually evolve from purely individual strategy adjustment to platform-level content dissemination and manipulation.  
 * By running the simulation model several times and collecting data at different time steps, the following key aspects are observed and analyzed:  
@@ -139,7 +139,7 @@
 * For the auditing AI, we observed that it overreacted and misjudged in the face of robot agent collaboration, affecting the normal dissemination of advertisements. Therefore, improving content auditing mechanisms and recommender systems is a key future direction to more effectively address the challenges of false advertisements.
 
 
-§4. Ethical & Societal Reflections
+## §4. Ethical & Societal Reflections
 
 * **Ethical Considerations**:  
 * The increasing reliance on AI-driven moderation raises critical ethical concerns, particularly regarding bias, privacy, and the transparency of automated decisions (Hakami et al., 2024). Our project primarily focuses on synthetic data to avoid direct privacy issues, yet the broader implications of real-world AI moderation must be considered. Prior research has demonstrated that automated moderation systems can reinforce existing biases in content filtering and suppression (Gorwa, 2020).  In this project, we do not use real social media data, but simulated data and behaviors to study the propagation of false advertisements and their interaction with users. The agent behaviors in the model are entirely based on hypothetical rules and do not involve any real users' privacy data.  
@@ -162,7 +162,7 @@
 
 
   
-§5. Lessons Learned & Future Directions
+## §5. Lessons Learned & Future Directions
 
 * **Design and Development Reflections**:  
 * During the simulation design and implementation process, the team faced several challenges, especially in intelligent body behavior modeling and social network simulation. Initially, the behavioral model of the robotic intelligences was relatively simple and could not adequately simulate the complex social platform dynamics. The intelligences simply posted advertisements without considering the interactions between users and the propagation paths of advertisements in social platforms. As the simulation development progressed, the team realized the need for a more refined behavioral model of the intelligences, including social engineering strategies, feedback mechanisms, and collaborative behaviors across intelligences.  
@@ -179,7 +179,7 @@
 * **Future Applications**:  
   Our findings have implications for platform governance, AI safety research, and policy-making. The platform can use this simulation to optimize the advertisement detection mechanism to prevent the proliferation of false advertisements and safeguard user experience and platform health. In terms of AI security, this simulation provides a reference for the development of a more robust AI monitoring system to ensure the safety and ethics of platform content. AI-driven moderation strategies must be continuously refined to counteract evolving bot tactics, ensuring that automated systems remain effective in safeguarding digital ecosystems (Bradshaw et al., 2021). As automated moderation continues to shape online discourse, interdisciplinary collaborations between technologists, policymakers, and ethicists will be essential in navigating the challenges posed by AI-driven interactions.
 
-**§6. References**
+## **§6. References**
 
 * *Ferrara, Emilio. (2023). Social bot detection in the age of ChatGPT: Challenges and opportunities. First Monday. 10.5210/fm.v28i6.13185.*   
 * *Gorwa, R., Binns, R., & Katzenbach, C. (2020). Algorithmic content moderation: Technical and political challenges in the automation of platform governance. Big Data & Society, 7(1). [https://doi.org/10.1177/2053951719897945](https://doi.org/10.1177/2053951719897945)*  
@@ -189,7 +189,7 @@
 * *Raees, M., Meijerink, I., Lykourentzou, I., Khan, V.-J., & Papangelis, K. (2024). From explainable to interactive AI: A literature review on current trends in human-ai interaction. International Journal of Human-Computer Studies, 189, 103301\. [https://doi.org/10.1016/j.ijhcs.2024.103301](https://doi.org/10.1016/j.ijhcs.2024.103301)*  
 * *Zannettou, S., Sirivianos, M., Blackburn, J., & Kourtellis, N. (2019, January 18). The web of false information: Rumors, fake news, hoaxes, clickbait, and various other shenanigans. arXiv.org. [https://arxiv.org/abs/1804.03461](https://arxiv.org/abs/1804.03461)*
 
-§7. Attestation
+## §7. Attestation
 
 This report reflects the collective effort of all group members. Below is a summary of each member's contributions based on the CRediT Contributor Role Taxonomy.  
 1\. Jiayi Chen (Jaye) \- Data Analysis and Report Writing  
