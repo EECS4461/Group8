@@ -36,7 +36,9 @@ Our model simulates the dynamic interactions within Xiaohongshu's media ecosyste
 - **Bot Agents**: Designed to emulate manipulative bots that work collectively to optimize visibility and evade detection mechanisms through content strategies and adaptive behaviors.
 - **Human User Agents**: Represent natural interaction patterns such as content interaction, liking, commenting, and following, influenced by behaviors that appear genuine even when affected by bots.
 - **Auditing AI (Guardian) Agents** _(to be fully implemented later)_: Intended to detect and mitigate bot activities using evolving algorithms based on behavioral analysis and community detection methods.
-![SimEnv.jpg](SimEnv.jpg)
+- 
+![SimEnv](https://github.com/user-attachments/assets/344baf0d-5e6b-42a0-b0a1-b035ba059568)
+
 #### Simulation Environment
 The simulation runs within a hybrid mesa-based simulation framework, combining a two-dimensional grid (`Mesa MultiGrid`) to represent spatial proximity interactions, and network structures (`NetworkGrid`, integration currently incomplete) to simulate social connection dynamics. Agents are positioned randomly and can relocate based on specific interaction rules, enabling both direct and indirect influence through spatial and network proximity.
 #### Agent Design
@@ -44,17 +46,23 @@ The partly implemented prototype currently emphasizes the following agent types 
 - **Bot Agents**: Implemented multiple bot types demonstrating essential behaviors like coordinated posting, targeted engagement (liking and commenting), and adaptive movement strategies to optimize visibility. Agents are able to demonstrate flocking-like behaviors mimicking emergent coordination among multiple bots.
 - **Human User Agents**: Demonstrating basic decision-making processes, agents respond dynamically to nearby contents. Their interaction decisions (like engagement or avoidance) are influenced by agent proximity and prior interactions.
 - _(Guardian Agents' preliminary design defined but not fully implemented yet)_: Guardian agents are intended to dynamically adjust their detection intensity based on observed bot activities and to identify suspicious patterns within the agents' interaction data.
-![AgentDesign.jpg](AgentDesign.jpg)
+- 
+![AgentDesign](https://github.com/user-attachments/assets/f6991e6f-68e8-470d-97d4-03c21ab5d769)
+
 In initial development, adjustments were made, notably shifting from an earlier continuous space (`ContinuousSpace`) approach in the prototype to a grid-based (`MultiGrid`) spatial structure for improved visualization and clarity in interpreting interaction results. This enhances simulation intelligibility and lays foundations for integrating complex Guardian agent behaviors in subsequent phases.
 #### Interaction Dynamics
 The current prototype uses a customized staggered scheduler (`RandomActivationByType`), allowing distinct agent types to update sequentially within each step cycle. Bot-to-bot interactions occur via proximity-based rules; bots move based on local density of activity (cohesion), avoidance of known detection zones (separation), and synchronization of posting activities (alignment-like behaviors). These local interactions lead to emergent phenomena, including clusters of bot-driven content amplification and observable patterns in user engagement.
-![Dynamics.jpg](Dynamics.jpg)
+
+![Dynamics](https://github.com/user-attachments/assets/3031ad02-24af-4acb-b42d-9538d760047c)
+
 #### Data Collection and Visualization
 Data collection focuses on several key metrics:
 - Interaction frequencies (bot-to-bot and bot-to-user engagements),
 - Detection rates of bots,
 - User perceived trust and engagement levels.
-![DataCollecting.jpg](DataCollecting.jpg)
+- 
+![DataCollecting](https://github.com/user-attachments/assets/46bf9870-b36a-4cb2-a104-64986d015688)
+
 Preliminary visualizations include real-time charts tracking interaction occurrences and spatial heatmaps displaying clusters of bot activity over grid spaces. Such visual feedback has been critical for timely adjustments and validation of model logic.
 
 
