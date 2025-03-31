@@ -5,14 +5,14 @@ on:
     paths:
       - 'run_solara_demo1.sh'
       - 'run_solara_demo2.sh'
-      - 'src/demo_01.py'
-      - 'src/demo_02.py'
+      - '../../src/test_del3/demo_01.py'
+      - '../../src/test_del3/demo_02.py'
   pull_request:
     paths:
       - 'run_solara_demo1.sh'
       - 'run_solara_demo2.sh'
-      - 'src/demo_01.py'
-      - 'src/demo_02.py'
+      - '../../src/test_del3/demo_01.py'
+      - '../../src/test_del3/demo_02.py'
 jobs:
   build-linux:
     runs-on: ubuntu-latest
