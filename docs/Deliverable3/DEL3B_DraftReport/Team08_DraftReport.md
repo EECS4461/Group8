@@ -32,18 +32,24 @@ These preliminary visualizations align closely with observed real-world dynamics
 * Audit Interface Layer: A temporal graph convolutional network (GCN) that updates edge weights every Δt=6 hours to detect bot anomalies adaptively (Chen, 2023).
 
 ### System Overview
+
 Our model simulates the dynamic interactions within Xiaohongshu's media ecosystem, focusing on automated social bots, genuine user agents, and auditing AI agents ("Guardians"). The core components of the system include:
+
 - **Bot Agents**: Designed to emulate manipulative bots that work collectively to optimize visibility and evade detection mechanisms through content strategies and adaptive behaviors.
 - **Human User Agents**: Represent natural interaction patterns such as content interaction, liking, commenting, and following, influenced by behaviors that appear genuine even when affected by bots.
 - **Auditing AI (Guardian) Agents** _(to be fully implemented later)_: Intended to detect and mitigate bot activities using evolving algorithms based on behavioral analysis and community detection methods.
 - 
+
 ![SimEnv](https://github.com/user-attachments/assets/344baf0d-5e6b-42a0-b0a1-b035ba059568)
 
 ### Simulation Environment
+
 The simulation runs within a hybrid mesa-based simulation framework, combining a two-dimensional grid (`Mesa MultiGrid`) to represent spatial proximity interactions, and network structures (`NetworkGrid`, integration currently incomplete) to simulate social connection dynamics. Agents are positioned randomly and can relocate based on specific interaction rules, enabling both direct and indirect influence through spatial and network proximity.
 
 ### Agent Design
+
 The partly implemented prototype currently emphasizes the following agent types and behaviors:
+
 - **Bot Agents**: Implemented multiple bot types demonstrating essential behaviors like coordinated posting, targeted engagement (liking and commenting), and adaptive movement strategies to optimize visibility. Agents are able to demonstrate flocking-like behaviors mimicking emergent coordination among multiple bots.
 - **Human User Agents**: Demonstrating basic decision-making processes, agents respond dynamically to nearby contents. Their interaction decisions (like engagement or avoidance) are influenced by agent proximity and prior interactions.
 - _(Guardian Agents' preliminary design defined but not fully implemented yet)_: Guardian agents are intended to dynamically adjust their detection intensity based on observed bot activities and to identify suspicious patterns within the agents' interaction data.
@@ -51,13 +57,17 @@ The partly implemented prototype currently emphasizes the following agent types 
 ![AgentDesign](https://github.com/user-attachments/assets/f6991e6f-68e8-470d-97d4-03c21ab5d769)
 
 In initial development, adjustments were made, notably shifting from an earlier continuous space (`ContinuousSpace`) approach in the prototype to a grid-based (`MultiGrid`) spatial structure for improved visualization and clarity in interpreting interaction results. This enhances simulation intelligibility and lays foundations for integrating complex Guardian agent behaviors in subsequent phases.
+
 ### Interaction Dynamics
+
 The current prototype uses a customized staggered scheduler (`RandomActivationByType`), allowing distinct agent types to update sequentially within each step cycle. Bot-to-bot interactions occur via proximity-based rules; bots move based on local density of activity (cohesion), avoidance of known detection zones (separation), and synchronization of posting activities (alignment-like behaviors). These local interactions lead to emergent phenomena, including clusters of bot-driven content amplification and observable patterns in user engagement.
 
 ![Dynamics](https://github.com/user-attachments/assets/3031ad02-24af-4acb-b42d-9538d760047c)
 
 ### Data Collection and Visualization
+
 Data collection focuses on several key metrics:
+
 - Interaction frequencies (bot-to-bot and bot-to-user engagements),
 - Detection rates of bots,
 - User perceived trust and engagement levels.
@@ -66,12 +76,9 @@ Data collection focuses on several key metrics:
 
 Preliminary visualizations include real-time charts tracking interaction occurrences and spatial heatmaps displaying clusters of bot activity over grid spaces. Such visual feedback has been critical for timely adjustments and validation of model logic.
 
-
 ## **§3. Preliminary Observations & Results (\~500 words)**
 
 > Early simulation results have provided valuable insights into the dynamics between bots, human users, and auditing AI within the Xiaohongshu ecosystem. Our initial runs have largely validated the model’s ability to reproduce key phenomena while also revealing unexpected emergent behaviours that warrant further investigation.
-
-
 
 Initial simulations suggest significant emergent phenomena aligning with our theoretical expectations. Early results demonstrate clear evidence of bots' ability to amplify content effectively, altering user engagement dynamics substantially.
 
@@ -109,19 +116,25 @@ Through these planned enhancements and detailed analyses, future iterations aim 
 ## **§4. Challenges & Next Steps (\~500 words)**
 
 The development of our simulation has encountered several significant challenges that have influenced both the design and early results. One of the primary difficulties has been achieving a realistic balance in the activation patterns of bot agents. Initially, bots tended to act in overly synchronized bursts, resulting in interaction patterns that did not accurately reflect the asynchronous nature of real-world social media activity. To address this, we introduced a staggered activation mechanism with random delays, which improved the naturalness of bot interactions; however, fine-tuning these delays remains an ongoing challenge.
+
 Another major challenge has been optimizing the performance of the Guardian AI. Although the auditing AI demonstrated strong overall performance, its responsiveness to rapid shifts in bot strategies was sometimes insufficient. Adjustments to the reinforcement learning parameters and threshold updates have yielded mixed results—increasing detection sensitivity often led to higher false positive rates. Balancing these trade-offs requires further experimentation and may benefit from integrating additional deep-learning techniques.
+
 The integration of multi-layered data collection and visualization systems has also proven to be complex. Our automated logging system captures key metrics such as bot detection rates, hashtag velocity, and content diversity; however, ensuring data consistency and real-time updates across disparate modules has been difficult. In some cases, the latency in data aggregation affected the clarity of our visualizations, particularly in the temporal trend graphs that track user engagement and bot activities.
+
 Looking ahead to the final report, several areas require further development and testing. First, we plan to refine the time-staggering parameters for bot activation to achieve a closer approximation to natural user behaviour. Second, enhancing the auditing AI’s adaptability by exploring alternative RL strategies and incorporating additional anomaly detection methods is a priority. This may include the use of more advanced deep learning architectures to improve detection accuracy further while reducing false positives. Additionally, we intend to develop a more robust data processing pipeline to improve the real-time integration of multi-source metrics, thereby enhancing the accuracy and interpretability of our visualizations. Expanded experiments involving sensitivity analyses of various agent parameters will also be conducted to validate the robustness of the simulation under different conditions.
 
 In summary, while the current model demonstrates promising capabilities in replicating the complex interactions between bot and human users and auditing AI, addressing the identified challenges is crucial. By focusing on these refinements, we expect to significantly enhance both the simulation's fidelity and the emergent behaviours' robustness, thereby providing stronger empirical support for our theoretical framework in the final report.
 
 ## **§6. References**
 
-Chen, S., Feng, S., Liang, S., Zong, C.-C., Li, J., & Li, P. (2024, June 3). *CACL: Community-aware heterogeneous graph contrastive learning for social media bot detection*. arXiv.org. https://arxiv.org/abs/2405.10558
-iResearch. (2023, May). *China Consumer Insights White Book 2023\.* https://report.iresearch.cn/report\_pdf.aspx?id=4257
-Wang, X., Zheng, Q., Zheng, K., Sui, Y., Cao, S., & Shi, Y. (2021, June 13). *Detecting social media bots with variational AutoEncoder and K-nearest neighbor*. MDPI. https://www.mdpi.com/2076-3417/11/12/5482
+> - Chen, S., Feng, S., Liang, S., Zong, C.-C., Li, J., & Li, P. (2024, June 3). *CACL: Community-aware heterogeneous graph contrastive learning for social media bot detection*. arXiv.org. https://arxiv.org/abs/2405.10558
+>
+> - iResearch. (2023, May). *China Consumer Insights White Book 2023\.* https://report.iresearch.cn/report\_pdf.aspx?id=4257
+>
+> - Wang, X., Zheng, Q., Zheng, K., Sui, Y., Cao, S., & Shi, Y. (2021, June 13). *Detecting social media bots with variational AutoEncoder and K-nearest neighbor*. MDPI. https://www.mdpi.com/2076-3417/11/12/5482
 
 ## **§7. Attestation**
+
 Xintong (Sylvia) Ling: Conceptualization, Project administration, Supervision, Investigation, Writing – original draft
 
 Huanrui Cao: Data curation, Visualization, Validation, Resources, Investigation, Methodology, Formal analysis, Writing – review & editing
