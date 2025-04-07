@@ -58,20 +58,20 @@ The emergent phenomenon arises from the dynamic interactions among these agents.
 The simulation employs a hybrid spatial environment combining a **2D grid** for agent placement and movement with a **network structure** to represent social relationships. Key features of the environment include:
 
 1\. Mixed space environments  
-* GridSpace: GridSpace is a 40x40 two-dimensional grid where agents are randomly distributed in grid cells to simulate user and bot behaviors on a social platform by interacting with agents in neighboring cells. The grid simplifies location management and supports efficient visualization and presentation. Multiple agents may occupy the same grid cell, simulating the interactions of overlapping users and bots on the platform.  
-* Social Network (NetworkGrid): on top of the grid space, the model builds a network of social relationships to simulate the attention and interactions between users. Each user agent influences the propagation of content recommendations by following other users. The social network maps the behavioral patterns of users and their feedback on the recommended content.  
+- GridSpace: GridSpace is a 40x40 two-dimensional grid where agents are randomly distributed in grid cells to simulate user and bot behaviors on a social platform by interacting with agents in neighboring cells. The grid simplifies location management and supports efficient visualization and presentation. Multiple agents may occupy the same grid cell, simulating the interactions of overlapping users and bots on the platform.  
+- Social Network (NetworkGrid): on top of the grid space, the model builds a network of social relationships to simulate the attention and interactions between users. Each user agent influences the propagation of content recommendations by following other users. The social network maps the behavioral patterns of users and their feedback on the recommended content.  
     
 2\. Key agents and their behaviors  
-* Bot Agent: Bot agents publish fake advertisements and collaborate to increase exposure and bypass detection by audit systems. They adjust their behavioral strategies based on platform feedback to optimize the distribution of fake content.  
-* Audit AI Agent (ModAIAgent): Audit AI Agents are responsible for platform content detection, identifying fake ads through behavioral analysis and community detection, and dynamically adjusting their detection strategies in response to changes in bot behavior. The goal is to improve the quality of the platform content and maintain the integrity of the platform.  
-* HumanUserAgent: User agents interact with content based on the platform's recommendation system and influence the recommendation mechanism. Users can randomly report suspicious bots, and the interaction behavior in turn affects the recommendation system, which in turn affects the spread of false advertisements.  
-* Recommendation System (Recommendation System): The recommendation system dynamically adjusts the content weights according to user interactions (likes, comments, and reports), optimizes the recommendation through the feedback mechanism, and affects the dissemination of false advertisements and information flow.  
+- Bot Agent: Bot agents publish fake advertisements and collaborate to increase exposure and bypass detection by audit systems. They adjust their behavioral strategies based on platform feedback to optimize the distribution of fake content.  
+- Audit AI Agent (ModAIAgent): Audit AI Agents are responsible for platform content detection, identifying fake ads through behavioral analysis and community detection, and dynamically adjusting their detection strategies in response to changes in bot behavior. The goal is to improve the quality of the platform content and maintain the integrity of the platform.  
+- HumanUserAgent: User agents interact with content based on the platform's recommendation system and influence the recommendation mechanism. Users can randomly report suspicious bots, and the interaction behavior in turn affects the recommendation system, which in turn affects the spread of false advertisements.  
+- Recommendation System (Recommendation System): The recommendation system dynamically adjusts the content weights according to user interactions (likes, comments, and reports), optimizes the recommendation through the feedback mechanism, and affects the dissemination of false advertisements and information flow.  
     
 3\. Key parameters and constraints in the model  
-  * Agent distribution: the initial position of agents in the grid space is randomized, which affects the frequency of interactions between agents. Social relationships form networks through attention and interaction, and user behavior affects recommender system optimization.  
-  * Content exposure and interaction: robot agents increase the exposure of false advertisements through interaction. The recommendation system dynamically adjusts content weights based on user interactions, affecting the scope of false advertisement dissemination.  
-  * Audit strategy: Audit AI agents respond to changes in robot behavior by dynamically adjusting their detection strategy, thus improving the quality of platform content.  
-  * Social network feedback mechanism: social network connectivity and user behavior have an important impact on content dissemination, and users' attention behavior and social relationships affect the dissemination range of false advertisements.
+  - Agent distribution: the initial position of agents in the grid space is randomized, which affects the frequency of interactions between agents. Social relationships form networks through attention and interaction, and user behavior affects recommender system optimization.  
+  - Content exposure and interaction: robot agents increase the exposure of false advertisements through interaction. The recommendation system dynamically adjusts content weights based on user interactions, affecting the scope of false advertisement dissemination.  
+  - Audit strategy: Audit AI agents respond to changes in robot behavior by dynamically adjusting their detection strategy, thus improving the quality of platform content.  
+  - Social network feedback mechanism: social network connectivity and user behavior have an important impact on content dissemination, and users' attention behavior and social relationships affect the dissemination range of false advertisements.
 
 ### **Agent Design**:   
 #### Ad Bot Behavior
@@ -85,26 +85,26 @@ The simulation employs a hybrid spatial environment combining a **2D grid** for 
 - **Action Protocols**: Removes flagged posts or bans suspicious bots.
 
 #### User Behavior  
-  * Liking & Commenting: Influence the spread of content.  
-  * Reporting: Increases the likelihood that the platform's AI will remove the content.  
-  * Purchasing: Driven by exposure to high-ranking ads.
-  * For the computational implementation, we use an intelligent body model based on the MESA framework, where the bot and the platform AI interact in multiple time steps and adjust their strategies based on feedbacks  
+  - Liking & Commenting: Influence the spread of content.  
+  - Reporting: Increases the likelihood that the platform's AI will remove the content.  
+  - Purchasing: Driven by exposure to high-ranking ads.
+  - For the computational implementation, we use an intelligent body model based on the MESA framework, where the bot and the platform AI interact in multiple time steps and adjust their strategies based on feedbacks  
     
 ### **Interaction Dynamics**:   
-* In the simulation, we use a combination of random scheduling and hierarchical scheduling:  
-  * Random scheduling: the bot randomly selects target users to publish advertisements to simulate the randomness of the bot in reality.  
-  * Hierarchical scheduling: the platform AI detects the content within a certain time interval, while the bot can quickly disseminate the information within the detection gap.  
-* This scheduling strategy captures the strategy game between the bot and the platform AI, allowing the bot to quickly adjust its strategy before the detection AI optimizes.
+- In the simulation, we use a combination of random scheduling and hierarchical scheduling:  
+  - Random scheduling: the bot randomly selects target users to publish advertisements to simulate the randomness of the bot in reality.  
+  - Hierarchical scheduling: the platform AI detects the content within a certain time interval, while the bot can quickly disseminate the information within the detection gap.  
+- This scheduling strategy captures the strategy game between the bot and the platform AI, allowing the bot to quickly adjust its strategy before the detection AI optimizes.
 ![Data Collection ](https://github.com/user-attachments/assets/40706430-d5cf-4e6f-8b5c-5f9c41cee10d)
 
 ### **Data Collection and Visualization:**   
-* The data we collected during the simulation include:  
-  * Bot Survival Rate: the percentage of bots that can still effectively disseminate information after a certain time step.  
-  * Platform AI detection success rate: the proportion of AI that successfully intercepts false content.  
-  * Purchase Volume: Number of purchases driven by bot-generated ads.  
+- The data we collected during the simulation include:  
+  - Bot Survival Rate: the percentage of bots that can still effectively disseminate information after a certain time step.  
+  - Platform AI detection success rate: the proportion of AI that successfully intercepts false content.  
+  - Purchase Volume: Number of purchases driven by bot-generated ads.  
   
 ![Data Visualization](https://github.com/user-attachments/assets/9198bec1-c08f-44b5-8625-f316a1805a9d)
-* Visualization methods include:
+- Visualization methods include:
 
   - **Grid Heatmaps**: Highlight areas of high interaction intensity.
   - **Real-Time Statistics Panel**: Displays metrics such as undetected bots, purchase volume, and detection rate.
@@ -120,25 +120,25 @@ The results show that in the process of continuous strategy optimization, the in
 
 By running the simulation model several times and collecting data at different time steps, the following key aspects are observed and analyzed:  
 
-* Spreading rate of false advertisements:  Initially, bots gain traction by posting ads and interacting with users. Over time, ModAIAgent improves detection, reducing ad exposure. The spread of false ads follows a non-linear trajectory, peaking before tapering off as detection mechanisms improve.
-* Users exhibit diverse behaviors: Increased bot activity correlates with higher user reporting rates. Users gradually adapt to misinformation, altering their interaction patterns.
-* Audit AI Detection and Response:  ModAIAgent identifies bots using behavior analysis.  Detection efficiency improves iteratively but fluctuates under coordinated bot attacks. Overreaction in detection can occasionally lead to false positives.
+- Spreading rate of false advertisements:  Initially, bots gain traction by posting ads and interacting with users. Over time, ModAIAgent improves detection, reducing ad exposure. The spread of false ads follows a non-linear trajectory, peaking before tapering off as detection mechanisms improve.
+- Users exhibit diverse behaviors: Increased bot activity correlates with higher user reporting rates. Users gradually adapt to misinformation, altering their interaction patterns.
+- Audit AI Detection and Response:  ModAIAgent identifies bots using behavior analysis.  Detection efficiency improves iteratively but fluctuates under coordinated bot attacks. Overreaction in detection can occasionally lead to false positives.
 
 ![Dynamics](https://github.com/user-attachments/assets/cbeb49d2-6190-43ff-946d-ee37d6828610)
 
 **Quantitative Metrics and Qualitative Description：**  
 In order to analyze the simulation results more systematically, we use several key metrics to measure the dissemination effect of false advertisements as well as the interaction patterns between bot agents and user agents.  
-* Exposure rate of false ads: We measure the spreading effect of false advertisements by recording the exposure frequency of each advertisement on the platform. Figure 1 illustrates the trend of the exposure rate of false ads over time. It can be seen that the exposure rate is low initially, but increases significantly as the frequency of advertisements posted by bot agents increases. The intervention of auditing AI makes the exposure rate gradually fall back at the later stage.  
-* Frequency of User Reporting: The reporting behavior of user agents on false advertisements is an important indicator of the platform interaction mode. Figure 2 shows the reporting behavior of users at different time steps. The data shows that as the number of false ads increases, the frequency of user reporting rises rapidly, indicating that users will gradually take proactive actions in the face of false content.  
-* Audit AI Detection Rate: The Audit AI agent evaluates its efficiency by the success rate of detecting false advertisements. Figure 3 demonstrates the ability of Audit AI to recognize false ads at different stages. Although the robot agent's strategy makes the Audit AI's detection efficiency low at the beginning, the Audit AI gradually optimizes its detection strategy over time, and eventually achieves a high detection success rate.
+- Exposure rate of false ads: We measure the spreading effect of false advertisements by recording the exposure frequency of each advertisement on the platform. Figure 1 illustrates the trend of the exposure rate of false ads over time. It can be seen that the exposure rate is low initially, but increases significantly as the frequency of advertisements posted by bot agents increases. The intervention of auditing AI makes the exposure rate gradually fall back at the later stage.  
+- Frequency of User Reporting: The reporting behavior of user agents on false advertisements is an important indicator of the platform interaction mode. Figure 2 shows the reporting behavior of users at different time steps. The data shows that as the number of false ads increases, the frequency of user reporting rises rapidly, indicating that users will gradually take proactive actions in the face of false content.  
+- Audit AI Detection Rate: The Audit AI agent evaluates its efficiency by the success rate of detecting false advertisements. Figure 3 demonstrates the ability of Audit AI to recognize false ads at different stages. Although the robot agent's strategy makes the Audit AI's detection efficiency low at the beginning, the Audit AI gradually optimizes its detection strategy over time, and eventually achieves a high detection success rate.
 
 **Unexpected Behavior and Emergence Dynamics：**  
 
 Although we anticipated during model design that the robotic agents would gradually adjust their strategies as the detection mechanisms of the auditing AI were optimized, we observed some unexpected behavioral patterns.  
 
-* Collaborative Behavior of Robotic Agents:  Over the course of multiple simulation runs, we noticed a gradual increase in collaborative behavior among the robot agents. Certain bots started to increase their exposure by co-publishing similar fake advertisements, and even manipulating the social network on the platform by liking and commenting on each other's ads. This collaborative behavior creates an advertising “information bubble” that dramatically increases the impact of false advertisements in a short period of time, even though the auditing AI agents have begun to strengthen their detection.  
-* User Agents' Response Patterns:  User agents exhibit complex response patterns when confronted with fake ads. Some users were not initially suspicious of the ads, but their reporting behavior increased significantly as more false ads appeared. However, certain users consistently failed to recognize all false ads, possibly due to the diversity of ad content on the platform and the varying interests of users. This phenomenon suggests that the diversity of content in recommender systems and platforms may have an impact on users' ability to recognize false ads.  
-* Overreaction of Audit AI:  Although the detection ability of the Audit AI is gradually improving, in some cases the Audit AI exhibits overreaction, especially when faced with collaborative interactions with bots. The Audit AI's detection mechanism sometimes misjudged the interaction behavior as false, thus incorrectly flagging certain legitimate advertisements. This misjudgment phenomenon suggests that Audit AI needs more refined detection strategies to avoid overreaction.  
+- Collaborative Behavior of Robotic Agents:  Over the course of multiple simulation runs, we noticed a gradual increase in collaborative behavior among the robot agents. Certain bots started to increase their exposure by co-publishing similar fake advertisements, and even manipulating the social network on the platform by liking and commenting on each other's ads. This collaborative behavior creates an advertising “information bubble” that dramatically increases the impact of false advertisements in a short period of time, even though the auditing AI agents have begun to strengthen their detection.  
+- User Agents' Response Patterns:  User agents exhibit complex response patterns when confronted with fake ads. Some users were not initially suspicious of the ads, but their reporting behavior increased significantly as more false ads appeared. However, certain users consistently failed to recognize all false ads, possibly due to the diversity of ad content on the platform and the varying interests of users. This phenomenon suggests that the diversity of content in recommender systems and platforms may have an impact on users' ability to recognize false ads.  
+- Overreaction of Audit AI:  Although the detection ability of the Audit AI is gradually improving, in some cases the Audit AI exhibits overreaction, especially when faced with collaborative interactions with bots. The Audit AI's detection mechanism sometimes misjudged the interaction behavior as false, thus incorrectly flagging certain legitimate advertisements. This misjudgment phenomenon suggests that Audit AI needs more refined detection strategies to avoid overreaction.  
 
 ![UnexpectedBehavior](https://github.com/user-attachments/assets/82989cff-1c68-4505-83d9-431496d3d9c0)   
 
@@ -168,19 +168,19 @@ Moreover, automated moderation tools, despite their efficiency, may unintentiona
 
 Our simulation reveals critical insights into the entangled dynamics of bot-to-bot and human-bot interactions, with societal consequences unfolding across micro, meso, and macro levels. These insights reflect both the potential and perils of AI deployment in content ecosystems, particularly in platforms like Xiaohongshu (RedNote), where social influence is algorithmically curated and amplified.
 
-* **Micro-level:**
+- **Micro-level:**
   
 At the individual level, users are particularly vulnerable to subtle manipulations when bots artificially inflate likes, comments, and engagement signals. These surface-level indicators often influence user decision-making, such as whether to engage with or trust a piece of content. When bots collude to amplify ad posts, real users may unknowingly participate in the spread of misinformation or deceptive marketing. This mirrors real-world incidents where users have been misled by inauthentic reviews or engagement metrics, eroding trust not only in specific content but also in the platform as a whole.
 
 Our simulation shows that even when users eventually report suspicious content, the delay in detection allows false content to gain traction. This parallels studies showing that misinformation spreads more quickly than corrections (Vosoughi et al., 2018), reinforcing the idea that early exposure has disproportionate influence.
 
-* **Meso-level:**
+- **Meso-level:**
   
 At the community level, the presence of coordinated bots disrupts the credibility of recommendation systems and weakens social cohesion. In our simulation, once bot behaviour becomes dominant within specific regions of the platform, user reports become less frequent due to the normalization of manipulative content, which is an emergent behaviour reflecting trust fatigue.
 
 This aligns with observed phenomena on platforms like Facebook or Twitter, where persistent exposure to low-quality or misleading content has been linked to user disengagement, increased polarization, and platform abandonment. When moderation systems are perceived as ineffective or biased, users begin to question the integrity of the entire ecosystem. Our model demonstrates this decline through diminishing report frequency and stagnant improvement in AI detection effectiveness without timely user feedback.
 
-* **Macro level:**   
+- **Macro level:**   
 
 Societal Stability and Governance ChallengesAt the societal level, bot-driven misinformation campaigns can severely disrupt democratic processes, polarize societies, and distort critical public discourses. The significant influence of misinformation in events like the 2016 U.S. presidential elections and misinformation surrounding the COVID-19 pandemic highlights the broad societal risks posed by ineffective moderation systems. These real-world scenarios underscore the urgent need for comprehensive, interdisciplinary collaboration between technology companies, policymakers, researchers, and civil society to effectively govern digital ecosystems and protect societal stability.
 
@@ -238,17 +238,18 @@ In the realm of AI safety, our findings reinforce the importance of adaptive mod
 On a policy-making level, the simulation’s outputs can help regulatory bodies assess moderation interventions' efficacy and potential unintended consequences. For example, it allows policymakers to explore trade-offs between overly aggressive takedown thresholds (risking over-censorship) and lenient moderation (permitting disinformation spread). These simulated outcomes can provide evidence for designing more transparent, accountable, and flexible moderation protocols aligned with digital rights and democratic values.
 
 Furthermore, our model can serve as an educational and strategic planning tool. Civil society organizations, academic institutions, and technology ethics boards can use it to understand better the propagation of false content, train platform auditors, or simulate crisis scenarios. By providing concrete data and dynamic visualizations, the simulation supports multidisciplinary collaboration among technologists, social scientists, and policymakers in building safer and more trustworthy digital ecosystems.
+
 ## **§6. References**
 
-* Bradshaw, S., Neudert, L. M., & Howard, P. N. (2021). Industrialized disinformation: 2020 global inventory of organized social media manipulation. Oxford Internet Institute, University of Oxford. https://doi.org/10.5281/zenodo.4615251*
-* *Ferrara, Emilio. (2023). Social bot detection in the age of ChatGPT: Challenges and opportunities. First Monday. 10.5210/fm.v28i6.13185.*
-* *Gorwa, R., Binns, R., & Katzenbach, C. (2020). Algorithmic content moderation: Technical and political challenges in the automation of platform governance. Big Data & Society, 7(1). [https://doi.org/10.1177/2053951719897945](https://doi.org/10.1177/2053951719897945)*  
-* *Hakami, Ammar & Tazel, Ravi. (2024). The Ethics of AI in Content Moderation: Balancing Privacy, Free Speech, and Algorithmic Control. 10.13140/RG.2.2.19529.97121.*   
-* *Luo, H., Meng, X., Zhao, Y., & Cai, M. (2023). Rise of social bots: The impact of Social Bots on public opinion dynamics in Public Health Emergencies from an information ecology perspective. Telematics and Informatics, 85, 102051\. [https://doi.org/10.1016/j.tele.2023.102051](https://doi.org/10.1016/j.tele.2023.102051)*  
-* *Pham, B. C., & Davies, S. R. (2024). What problems is the AI act solving? Technological solutionism, fundamental rights, and trustworthiness in European AI policy. Critical Policy Studies, 1–19. [https://doi.org/10.1080/19460171.2024.2373786](https://doi.org/10.1080/19460171.2024.2373786)*  
-* *Raees, M., Meijerink, I., Lykourentzou, I., Khan, V.-J., & Papangelis, K. (2024). From explainable to interactive AI: A literature review on current trends in human-ai interaction. International Journal of Human-Computer Studies, 189, 103301\. [https://doi.org/10.1016/j.ijhcs.2024.103301](https://doi.org/10.1016/j.ijhcs.2024.103301)*
-* Vosoughi, S., Roy, D., & Aral, S. (2018). The spread of true and false news online. Science, 359(6380), 1146–1151. https://doi.org/10.1126/science.aap9559*
-* *Zannettou, S., Sirivianos, M., Blackburn, J., & Kourtellis, N. (2019, January 18). The web of false information: Rumors, fake news, hoaxes, clickbait, and various other shenanigans. arXiv.org. [https://arxiv.org/abs/1804.03461](https://arxiv.org/abs/1804.03461)*
+- Bradshaw, S., Neudert, L. M., & Howard, P. N. (2021). Industrialized disinformation: 2020 global inventory of organized social media manipulation. Oxford Internet Institute, University of Oxford. https://doi.org/10.5281/zenodo.4615251*
+- *Ferrara, Emilio. (2023). Social bot detection in the age of ChatGPT: Challenges and opportunities. First Monday. 10.5210/fm.v28i6.13185.*
+- *Gorwa, R., Binns, R., & Katzenbach, C. (2020). Algorithmic content moderation: Technical and political challenges in the automation of platform governance. Big Data & Society, 7(1). [https://doi.org/10.1177/2053951719897945](https://doi.org/10.1177/2053951719897945)*  
+- *Hakami, Ammar & Tazel, Ravi. (2024). The Ethics of AI in Content Moderation: Balancing Privacy, Free Speech, and Algorithmic Control. 10.13140/RG.2.2.19529.97121.*   
+- *Luo, H., Meng, X., Zhao, Y., & Cai, M. (2023). Rise of social bots: The impact of Social Bots on public opinion dynamics in Public Health Emergencies from an information ecology perspective. Telematics and Informatics, 85, 102051\. [https://doi.org/10.1016/j.tele.2023.102051](https://doi.org/10.1016/j.tele.2023.102051)*  
+- *Pham, B. C., & Davies, S. R. (2024). What problems is the AI act solving? Technological solutionism, fundamental rights, and trustworthiness in European AI policy. Critical Policy Studies, 1–19. [https://doi.org/10.1080/19460171.2024.2373786](https://doi.org/10.1080/19460171.2024.2373786)*  
+- *Raees, M., Meijerink, I., Lykourentzou, I., Khan, V.-J., & Papangelis, K. (2024). From explainable to interactive AI: A literature review on current trends in human-ai interaction. International Journal of Human-Computer Studies, 189, 103301\. [https://doi.org/10.1016/j.ijhcs.2024.103301](https://doi.org/10.1016/j.ijhcs.2024.103301)*
+- Vosoughi, S., Roy, D., & Aral, S. (2018). The spread of true and false news online. Science, 359(6380), 1146–1151. https://doi.org/10.1126/science.aap9559*
+- *Zannettou, S., Sirivianos, M., Blackburn, J., & Kourtellis, N. (2019, January 18). The web of false information: Rumors, fake news, hoaxes, clickbait, and various other shenanigans. arXiv.org. [https://arxiv.org/abs/1804.03461](https://arxiv.org/abs/1804.03461)*
 
 ## §7. Attestation
 
