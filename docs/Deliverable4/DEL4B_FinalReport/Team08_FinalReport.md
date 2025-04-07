@@ -164,22 +164,35 @@ At the individual level, users are particularly vulnerable to subtle manipulatio
 
 Our simulation shows that even when users eventually report suspicious content, the delay in detection allows false content to gain traction. This parallels studies showing that misinformation spreads more quickly than corrections (Vosoughi et al., 2018), reinforcing the idea that early exposure has disproportionate influence.
 
-* **Mesoscopic level:**
+* **Meso-level:**
   
 At the community level, the presence of coordinated bots disrupts the credibility of recommendation systems and weakens social cohesion. In our simulation, once bot behaviour becomes dominant within specific regions of the platform, user reports become less frequent due to the normalization of manipulative content, which is an emergent behaviour reflecting trust fatigue.
 
 This aligns with observed phenomena on platforms like Facebook or Twitter, where persistent exposure to low-quality or misleading content has been linked to user disengagement, increased polarization, and platform abandonment. When moderation systems are perceived as ineffective or biased, users begin to question the integrity of the entire ecosystem. Our model demonstrates this decline through diminishing report frequency and stagnant improvement in AI detection effectiveness without timely user feedback.
 
 * **Macro level:**   
-  * At the broader societal level, the spread of false advertisements can have far-reaching effects on public opinion and social dynamics. False advertisements may influence voting behavior during elections, sway public sentiment on critical issues, or even cause social unrest. These kinds of manipulations can disrupt democratic processes, leading to significant consequences for public discourse and societal stability. Therefore, effective content moderation is not just about maintaining platform integrity but also about safeguarding broader societal structures and preventing misinformation from distorting reality on a mass scale.
 
+Societal Stability and Governance ChallengesAt the societal level, bot-driven misinformation campaigns can severely disrupt democratic processes, polarize societies, and distort critical public discourses. The significant influence of misinformation in events like the 2016 U.S. presidential elections and misinformation surrounding the COVID-19 pandemic highlights the broad societal risks posed by ineffective moderation systems. These real-world scenarios underscore the urgent need for comprehensive, interdisciplinary collaboration between technology companies, policymakers, researchers, and civil society to effectively govern digital ecosystems and protect societal stability.
 
 **Potential for malicious use**  
   
- Although this model is designed to explore the mechanisms of false advertisement propagation, it may also be used for malicious purposes.  Malicious users may use the simulation tool to design more sophisticated false advertising strategies that manipulate user behavior. To prevent this, platforms need to enhance content auditing and bot behavior detection to ensure that these techniques are not misused.  
-  One of the inherent risks of creating simulation tools for understanding bot behavior is the potential for malicious use. Although the goal of this model is to explore the propagation of false advertisements and their interaction with users, malicious users may exploit similar tools to design more sophisticated strategies for manipulating online platforms.  
-  To mitigate this risk, platforms must invest in stronger content auditing systems, advanced bot detection mechanisms, and ongoing research into evolving strategies for combating malicious behaviors. Collaboration between researchers, platform administrators, and ethical bodies will be essential in ensuring that such tools are not misused for harmful purposes.
+Although this model is designed to explore the mechanisms of false advertisement propagation, it may also be used for malicious purposes. Malicious users could potentially exploit simulation tools like ours to develop more evasive and strategic bot behaviours for spreading misinformation and manipulating public opinion. For example, by analyzing detection weaknesses or exploiting behavioural feedback loops, adversaries could engineer bots capable of avoiding detection while maintaining strong influence.
 
+To mitigate this risk, platforms must proactively invest in stronger content auditing systems, advanced bot detection mechanisms, and continuous research into evolving adversarial tactics. One of the inherent risks in publishing bot behaviour simulations is their dual-use nature: while they offer insight for defenders, they can also inform attackers. Therefore, ethical dissemination of findings, selective sharing of technical details, and robust collaborations between researchers, platform administrators, and ethical review boards are essential to prevent misuse and ensure these tools serve the public good.
+
+**Recommendations for Ethical AI Governance**  
+
+To comprehensively address these ethical challenges and societal impacts, we propose actionable recommendations anchored in broader AI governance frameworks:
+
+Enhanced Transparency: Platforms should transparently disclose all data collection practices, provide clear mechanisms for user consent, and enable users to control their personal data actively.
+
+Continuous Bias Audits: Regularly auditing moderation algorithms to detect and address inherent biases is vital to ensuring fairness, inclusivity, and ethical integrity within digital environments.
+
+Interdisciplinary Collaboration: Active partnerships among technologists, policymakers, ethicists, and social scientists can foster robust, adaptable governance frameworks that effectively respond to evolving threats posed by bot-driven misinformation.
+
+Public Digital Literacy Initiatives: Expanding education programs on digital literacy will empower users to recognize misinformation, understand algorithmic manipulation, and engage proactively in content moderation.
+
+By actively incorporating these recommendations, platforms can ensure ethical integrity, strengthen resilience, and uphold societal trust, effectively mitigating the adverse impacts of automated misinformation and bot interactions.
 
   
 ## §5. Lessons Learned & Future Directions
@@ -212,7 +225,8 @@ Finally, computational performance is also a bottleneck in the current model. Wi
 * *Hakami, Ammar & Tazel, Ravi. (2024). The Ethics of AI in Content Moderation: Balancing Privacy, Free Speech, and Algorithmic Control. 10.13140/RG.2.2.19529.97121.*   
 * *Luo, H., Meng, X., Zhao, Y., & Cai, M. (2023). Rise of social bots: The impact of Social Bots on public opinion dynamics in Public Health Emergencies from an information ecology perspective. Telematics and Informatics, 85, 102051\. [https://doi.org/10.1016/j.tele.2023.102051](https://doi.org/10.1016/j.tele.2023.102051)*  
 * *Pham, B. C., & Davies, S. R. (2024). What problems is the AI act solving? Technological solutionism, fundamental rights, and trustworthiness in European AI policy. Critical Policy Studies, 1–19. [https://doi.org/10.1080/19460171.2024.2373786](https://doi.org/10.1080/19460171.2024.2373786)*  
-* *Raees, M., Meijerink, I., Lykourentzou, I., Khan, V.-J., & Papangelis, K. (2024). From explainable to interactive AI: A literature review on current trends in human-ai interaction. International Journal of Human-Computer Studies, 189, 103301\. [https://doi.org/10.1016/j.ijhcs.2024.103301](https://doi.org/10.1016/j.ijhcs.2024.103301)*  
+* *Raees, M., Meijerink, I., Lykourentzou, I., Khan, V.-J., & Papangelis, K. (2024). From explainable to interactive AI: A literature review on current trends in human-ai interaction. International Journal of Human-Computer Studies, 189, 103301\. [https://doi.org/10.1016/j.ijhcs.2024.103301](https://doi.org/10.1016/j.ijhcs.2024.103301)*
+* Vosoughi, S., Roy, D., & Aral, S. (2018). The spread of true and false news online. Science, 359(6380), 1146–1151. https://doi.org/10.1126/science.aap9559*
 * *Zannettou, S., Sirivianos, M., Blackburn, J., & Kourtellis, N. (2019, January 18). The web of false information: Rumors, fake news, hoaxes, clickbait, and various other shenanigans. arXiv.org. [https://arxiv.org/abs/1804.03461](https://arxiv.org/abs/1804.03461)*
 
 ## §7. Attestation
