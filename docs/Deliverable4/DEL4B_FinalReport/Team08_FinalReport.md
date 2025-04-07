@@ -32,13 +32,20 @@ This evolution clearly demonstrates the trend of AI confrontation in the social 
 
 ## **§2. Simulation Design & Implementation**  
 ### **System Overview**:   
-The central goal of this research is to model the confrontation between automated bots and platform AI on social media platforms, aiming to study their dynamic behavior in the information ecosystem. The dynamic confrontation in the model is reflected in the fact that the bots constantly adjust their strategies to bypass detection, while the platform AI optimizes its algorithms to improve recognition. The emergence of this phenomenon mimics the challenges of content censorship in reality. The core components of the system include three main agents: the Bot Agent, the Review AI Agent (ModAIAgent), and the Real User Agent (HumanUserAgent). In addition, the recommender system dynamically adjusts the visibility of the content, which in turn affects the interaction and information dissemination among the agents. The simulation employs the Mesa framework for agent modeling and visualization; the spatial structure of the model uses GridSpace for compatibility with Mesa's visualization tools, and simulates the geographic location of agents and their interaction patterns in social platforms.
+The core components of the model include multiple agents interacting within a 2D grid-based environment to simulate the dynamics of ad dissemination and detection on social platforms. These agents are:
 
+1. **Original Posts (Red Grids)**: Represent authentic content originating from users or brands.
+2. **Ad Posts (Blue Grids)**: Represent advertisements posted by bots around original posts.
+3. **Ad Bots (Green Triangles)**: Automated agents that post ads, collaborate with other bots, and attempt to evade detection.
+4. **Human Users (Yellow Dots)**: Realistic user agents who interact with ad posts through actions such as liking, purchasing, or reporting.
+5. **Platform Detection AI**: A system that monitors agent behavior, identifies suspicious accounts, and removes high-risk posts or bots.
+
+The emergent phenomenon arises from the dynamic interactions among these agents. Ad bots amplify their influence by collaborating to generate likes and comments, misleading human users into engaging with fraudulent content. The platform’s detection AI counters this by analyzing abnormal patterns in engagement metrics and user reports, leading to an ongoing "algorithmic arms race" between manipulative bots and defensive AI systems.
 ### **Simulation Environment**:   
-This simulation model is based on a hybrid spatial environment combining GridSpace and NetworkGrid for simulating interactions between robotic agents, real user agents and auditing AI agents. The environment simulates a complex social platform where the behavior of the agents is not only affected by their physical location but also by the dynamic changes in social relationships.  
-  
+The simulation employs a hybrid spatial environment combining a **2D grid** for agent placement and movement with a **network structure** to represent social relationships. Key features of the environment include:
+
 1\. Mixed space environments  
-* GridSpace: GridSpace is a 50x50 two-dimensional grid where agents are randomly distributed in grid cells to simulate user and bot behaviors on a social platform by interacting with agents in neighboring cells. The grid simplifies location management and supports efficient visualization and presentation. Multiple agents may occupy the same grid cell, simulating the interactions of overlapping users and bots on the platform.  
+* GridSpace: GridSpace is a 40x40 two-dimensional grid where agents are randomly distributed in grid cells to simulate user and bot behaviors on a social platform by interacting with agents in neighboring cells. The grid simplifies location management and supports efficient visualization and presentation. Multiple agents may occupy the same grid cell, simulating the interactions of overlapping users and bots on the platform.  
 * Social Network (NetworkGrid): on top of the grid space, the model builds a network of social relationships to simulate the attention and interactions between users. Each user agent influences the propagation of content recommendations by following other users. The social network maps the behavioral patterns of users and their feedback on the recommended content.  
     
 2\. Key agents and their behaviors  
@@ -54,16 +61,15 @@ This simulation model is based on a hybrid spatial environment combining GridSpa
   * Social network feedback mechanism: social network connectivity and user behavior have an important impact on content dissemination, and users' attention behavior and social relationships affect the dissemination range of false advertisements.
 
 ### **Agent Design**:   
-#### Bot Design  
-  * Initial strategy: the bot will use a simple template to generate ad content.  
-  * Evolutionary mechanism: When a bot's ad is removed by the platform AI, it will adjust its strategy, including changing the text structure, adding random elements, or even mimicking user behavior.  
-  * Social engineering: some bots may mimic the interaction patterns of real users to increase survival rates.
+#### Ad Bot Behavior
+- **Initial Strategy**: Ad bots seek out target original posts and publish ads nearby.
+- **Collaborative Amplification**: Bots like each other’s posts to artificially inflate popularity.
+- **Evasion Tactics**: When facing high report risks, bots reduce posting frequency or disperse activities to avoid detection.
 
 
 #### Platform Detection AI Design  
-  * Rule-based detection: match known ad patterns.  
-  * Machine learning detection: adjusting classification models based on training data.  
-  * Behavioral analysis: detect abnormal interaction patterns, such as an account posting a large number of similar comments in a short period of time.
+- **Behavioral Analysis**: Monitors engagement patterns and flags abnormal growth rates or excessive reports.
+- **Action Protocols**: Removes flagged posts or bans suspicious bots.
 
 #### User Behavior  
   * Liking & Commenting: Influence the spread of content.  
@@ -81,12 +87,14 @@ This simulation model is based on a hybrid spatial environment combining GridSpa
 * The data we collected during the simulation include:  
   * Bot Survival Rate: the percentage of bots that can still effectively disseminate information after a certain time step.  
   * Platform AI detection success rate: the proportion of AI that successfully intercepts false content.  
-  * User reporting behavior: the frequency of user reporting and its impact on the detection success rate.  
-* Visualization methods include:  
-  * Network structure diagram: show the interaction between bot and users.  
-  * Time series graph: tracking the change of bot adaptation strategies.  
-  * Heatmaps: to show the distribution of detection efficiency of platform AI.  
-* Through these analyses, we can reveal the dynamic confrontation process between bot and platform AI, and provide optimization suggestions for the content regulation strategy of social media platforms.  
+  * Purchase Volume: Number of purchases driven by bot-generated ads.  
+* Visualization methods include:
+
+  - **Grid Heatmaps**: Highlight areas of high interaction intensity.
+  - **Real-Time Statistics Panel**: Displays metrics such as undetected bots, purchase volume, and detection rate.
+  - **Curve Plots**: Track changes in key metrics over time.
+
+Through these analyses, we can reveal the dynamic confrontation process between bot and platform AI, and provide optimization suggestions for the content regulation strategy of social media platforms.  
     
 ## **§3. Observations & Results**
 
