@@ -207,8 +207,6 @@ Finally, computational performance is also a bottleneck in the current model. Wi
 ## §7. Attestation
 
 This report reflects the collective effort of all group members. Below is a summary of each member's contributions based on the CRediT Contributor Role Taxonomy.  
-1\. Jiayi Chen (Jaye) \- Data Analysis and Report Writing  
-Conducted data collection and analysis.  
+1\. Jiayi Chen (Jaye) \- Data Analysis and Report Draft Writing: Conducted data collection and analysis.  
 2\.  Xintong Ling (Sylvia) \- Conceptualization, Project administration, Writing – review & editing, Supervision.  
-3\.  Huanrui Cao (Saikoro) \- Report Review and Model Improvement  
-Reviewed and validated the report for accuracy and clarity.
+3\.  Huanrui Cao (Saikoro) \- Report Review and Model Improvement: Reviewed and validated the report for accuracy and clarity.
