@@ -18,17 +18,27 @@ The widespread presence of bots has important implications for digital platforms
 
 Agent-based modelling (ABM) is particularly suitable for studying this phenomenon due to its capacity to simulate complex adaptive systems composed of autonomous agents. ABM enables detailed observations of individual agent behaviours, their interactions, and the resulting emergent macro-level patterns. This methodological approach effectively captures the dynamic strategies and evolving interactions characteristic of AI-driven bots and Guardian AI, facilitating deeper insights into adaptive moderation and manipulative tactics.  
 
-* **Illustrate the Phenomenon**
+### Illustrate the Phenomenon
 
-We provide a sequential visualization to clearly illustrate the emergence and progression of the phenomenon:   
-  The following sequence shows the evolution of the bots and the platform AI as they interact:  
-  * Phase 1: Bots start posting advertising messages in large numbers, some of which use deceptive headlines and highly similar user-generated content.  
-  * Phase 2: The platform AI detection system identifies and removes some of the advertising comments, but some bots manage to bypass detection and continue to propagate by adjusting the text content or embedding unstructured data.  
-  * Stage 3: Bots employ more advanced strategies, such as using deep learning to generate more natural-looking ad content, making it harder to distinguish.  
-  * Stage 4: Platform AI introduces new detection mechanisms, such as using graph neural networks (GNNs) to analyze anomalous patterns in social networks and improve detection accuracy.  
-  * Stage 5: The confrontation between bots and platform AI enters a new phase, where platform AI optimizes its algorithms to adapt to changing bot strategies while bots attempt to leverage user interaction data to simulate normal user behaviour.
-  
-This evolution clearly demonstrates the trend of AI confrontation in the social media ecosystem and the need for future regulatory strategies to constantly adapt to this dynamic change to effectively curb the proliferation of disinformation.
+To "signpost" the content of this report, we present a curated sequence of visualizations from our agent-based simulation, capturing the emergence and progression of the phenomenon of interest: the interplay between ad/shill bots, human users, and a platform's detection AI in a media ecosystem. This sequence, described below as a series of snapshots at different timesteps, illustrates how bots collaborate to amplify ad content, how users respond, and how the platform's AI attempts to detect and mitigate their influence. Each phase includes text annotations to explain the progression over time, offering a narrative of this dynamic "cat-and-mouse" game.
+![sequenceDiagram](https://github.com/user-attachments/assets/6f601409-62e8-4a54-b894-91a4d11b3913)
+- **Phase 1: Initial Setup**  
+  The simulation begins with a 2D grid featuring original articles (represented as red stars) scattered across the space. A small number of ad/shill bots (green triangles) are introduced, each posting ad posts (blue grids) strategically near these articles to exploit their visibility and attract user attention.
+
+- **Phase 2: Bot Collaboration and Amplification**  
+  As the simulation advances, the bots collaborate by liking each other’s ad posts. This mutual liking increases the influence range of the posts, visualized as expanding blue areas around them. The amplified visibility draws more human users (yellow dots) to these ad posts, simulating how perceived popularity can enhance engagement in a media ecosystem.
+
+- **Phase 3: User Interactions and Reporting**  
+  Human users begin interacting with the ad posts. Some, swayed by the high number of likes, purchase the advertised products, reflecting how bot-driven amplification can mislead users. Others, suspecting deception or fraud, report the posts, with these reports visualized as red flags accumulating on certain ad posts. This phase highlights the dual role of users as both potential victims and detectors.
+
+- **Phase 4: Platform Detection and Action**  
+  The platform’s detection AI monitors the grid, analyzing signals such as the number of reports and behavioral patterns. When a post accumulates sufficient reports or exhibits suspicious activity, the AI removes it or eliminates the bot responsible. Removed bots disappear from the grid, and their posts vanish, demonstrating the platform’s efforts to curb malicious activity and restore ecosystem integrity.
+
+- **Phase 5: Bot Adaptation and Evasion**  
+  Bots nearing detection—those with posts receiving multiple reports—adapt by reducing their activity, such as posting or liking less frequently, to evade the platform’s thresholds. Meanwhile, other bots persist with their strategies, and new bots may emerge, perpetuating the cycle. This phase underscores the adaptive nature of bots in response to detection efforts.
+
+This sequence of snapshots illustrates a continuous cycle of bot collaboration, user interaction, platform detection, and bot evasion. It reveals how ad/shill bots manipulate the media ecosystem through coordinated actions, how human users can be both deceived and instrumental in flagging suspicious content, and how the platform’s AI strives to identify and remove malicious agents. The phenomenon emerges as an ongoing contest between AI-driven bots and the platform’s detection mechanisms, with each side adapting to the other’s strategies over time.
+
 
 ## **§2. Simulation Design & Implementation**  
 ### **System Overview**:   
