@@ -41,6 +41,9 @@ The core components of the model include multiple agents interacting within a 2D
 5. **Platform Detection AI**: A system that monitors agent behavior, identifies suspicious accounts, and removes high-risk posts or bots.
 
 The emergent phenomenon arises from the dynamic interactions among these agents. Ad bots amplify their influence by collaborating to generate likes and comments, misleading human users into engaging with fraudulent content. The platform’s detection AI counters this by analyzing abnormal patterns in engagement metrics and user reports, leading to an ongoing "algorithmic arms race" between manipulative bots and defensive AI systems.
+
+![Simulation_Environment](https://github.com/user-attachments/assets/6e4a4994-bce7-497e-b732-008ef219e0bb)
+
 ### **Simulation Environment**:   
 The simulation employs a hybrid spatial environment combining a **2D grid** for agent placement and movement with a **network structure** to represent social relationships. Key features of the environment include:
 
@@ -82,12 +85,15 @@ The simulation employs a hybrid spatial environment combining a **2D grid** for 
   * Random scheduling: the bot randomly selects target users to publish advertisements to simulate the randomness of the bot in reality.  
   * Hierarchical scheduling: the platform AI detects the content within a certain time interval, while the bot can quickly disseminate the information within the detection gap.  
 * This scheduling strategy captures the strategy game between the bot and the platform AI, allowing the bot to quickly adjust its strategy before the detection AI optimizes.
+![Data Collection ](https://github.com/user-attachments/assets/40706430-d5cf-4e6f-8b5c-5f9c41cee10d)
 
 ### **Data Collection and Visualization:**   
 * The data we collected during the simulation include:  
   * Bot Survival Rate: the percentage of bots that can still effectively disseminate information after a certain time step.  
   * Platform AI detection success rate: the proportion of AI that successfully intercepts false content.  
   * Purchase Volume: Number of purchases driven by bot-generated ads.  
+  
+![Data Visualization](https://github.com/user-attachments/assets/9198bec1-c08f-44b5-8625-f316a1805a9d)
 * Visualization methods include:
 
   - **Grid Heatmaps**: Highlight areas of high interaction intensity.
@@ -126,6 +132,7 @@ By running the simulation model several times and collecting data at different t
 
   Overreaction in detection can occasionally lead to false positives.
 
+![Dynamics](https://github.com/user-attachments/assets/cbeb49d2-6190-43ff-946d-ee37d6828610)
 
 **Quantitative Metrics and Qualitative Description：**  
 In order to analyze the simulation results more systematically, we use several key metrics to measure the dissemination effect of false advertisements as well as the interaction patterns between bot agents and user agents.  
@@ -141,8 +148,6 @@ Visual Representations
 Red nodes: Represent original content.  
 Blue nodes: Indicate advertisement posts.
 
-![1](https://github.com/user-attachments/assets/82989cff-1c68-4505-83d9-431496d3d9c0)
-![2](https://github.com/user-attachments/assets/cbeb49d2-6190-43ff-946d-ee37d6828610)
 
 **Unexpected Behavior and Emergence Dynamics：**  
 
@@ -154,7 +159,9 @@ Although we anticipated during model design that the robotic agents would gradua
   User agents exhibit complex response patterns when confronted with fake ads. Some users were not initially suspicious of the ads, but their reporting behavior increased significantly as more false ads appeared. However, certain users consistently failed to recognize all false ads, possibly due to the diversity of ad content on the platform and the varying interests of users. This phenomenon suggests that the diversity of content in recommender systems and platforms may have an impact on users' ability to recognize false ads.  
 * Overreaction of Audit AI  
   Although the detection ability of the Audit AI is gradually improving, in some cases the Audit AI exhibits overreaction, especially when faced with collaborative interactions with bots. The Audit AI's detection mechanism sometimes misjudged the interaction behavior as false, thus incorrectly flagging certain legitimate advertisements. This misjudgment phenomenon suggests that Audit AI needs more refined detection strategies to avoid overreaction.  
-    
+
+* ![UnexpectedBehavior](https://github.com/user-attachments/assets/82989cff-1c68-4505-83d9-431496d3d9c0)   
+
 **Interpretation and Discussion**  
 Collaborative Behavior of Bot Agents: By analyzing the collaborative behavior of bot agents, we find that the spread of false advertisements is not only driven by individual bots, but also by mutual collaboration among multiple bot agents. This finding reminds us that the spread of false advertisements is no longer just an interaction between individual users and advertisements, but can spread rapidly through the collaboration of bots, forming a large-scale information bubble.  
 
