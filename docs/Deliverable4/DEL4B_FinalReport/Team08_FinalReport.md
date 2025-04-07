@@ -19,7 +19,7 @@ The widespread presence of bots has important implications for digital platforms
 Agent-based modelling (ABM) is particularly suitable for studying this phenomenon due to its capacity to simulate complex adaptive systems composed of autonomous agents. ABM enables detailed observations of individual agent behaviours, their interactions, and the resulting emergent macro-level patterns. This methodological approach effectively captures the dynamic strategies and evolving interactions characteristic of AI-driven bots and Guardian AI, facilitating deeper insights into adaptive moderation and manipulative tactics.  
 
 * **Illustrate the Phenomenon**:
-* We provide a sequential visualization to clearly illustrate the emergence and progression of the phenomenon:   
+We provide a sequential visualization to clearly illustrate the emergence and progression of the phenomenon:   
   The following sequence shows the evolution of the bots and the platform AI as they interact:  
   * Phase 1: Bots start posting advertising messages in large numbers, some of which use deceptive headlines and highly similar user-generated content.  
   * Phase 2: The platform AI detection system identifies and removes some of the advertising comments, but some bots manage to bypass detection and continue to propagate by adjusting the text content or embedding unstructured data.  
