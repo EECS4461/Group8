@@ -148,12 +148,14 @@ For the auditing AI, we observed that it overreacted and misjudged in the face o
 
 ## §4. Ethical & Societal Reflections
 
-**Ethical Considerations**:  
+### Ethical Considerations
+
 The increasing reliance on AI-driven moderation systems raises critical ethical concerns, particularly around bias, privacy, transparency, and potential unintended consequences of automated decision-making processes (Hakami et al., 2024). Although our project utilized synthetic rather than real-world data to protect individual privacy, the simulation still prompts important ethical considerations regarding data usage. Specifically, if such a simulation were applied or adapted to real social media platforms, there would be significant privacy implications. Bots could potentially impose user interaction data such as likes, comments, and sharing patterns to optimize the dissemination of false advertisements, leading to intrusive surveillance without explicit user consent. Therefore, transparent communication from platforms regarding the collection, usage, and protection of user data is paramount to maintaining user trust and ethical compliance.
 
 Moreover, automated moderation tools, despite their efficiency, may unintentionally amplify biases embedded within algorithmic training datasets (Gorwa et al., 2020). For instance, AI-driven moderation systems risk disproportionately silencing certain groups or viewpoints due to biased historical moderation data. These concerns underline the necessity of ongoing ethical oversight and governance frameworks to prevent such biases from proliferating. Platforms must remain vigilant in continuously auditing their moderation algorithms, ensuring fairness, accountability, and transparency in automated decision-making processes.
 
-**Societal Implications**:  
+### Societal Implications
+
 Our simulation reveals critical insights into the entangled dynamics of bot-to-bot and human-bot interactions, with societal consequences unfolding across micro, meso, and macro levels. These insights reflect both the potential and perils of AI deployment in content ecosystems, particularly in platforms like Xiaohongshu (RedNote), where social influence is algorithmically curated and amplified.
 
 * **Micro-level:**
@@ -162,8 +164,12 @@ At the individual level, users are particularly vulnerable to subtle manipulatio
 
 Our simulation shows that even when users eventually report suspicious content, the delay in detection allows false content to gain traction. This parallels studies showing that misinformation spreads more quickly than corrections (Vosoughi et al., 2018), reinforcing the idea that early exposure has disproportionate influence.
 
-* **Mesoscopic level:**   
-  * At the community level, the effectiveness of social platform AI systems—particularly recommender and audit algorithms—can significantly impact the spread of false advertisements. When platforms fail to identify and limit the propagation of false ads, the trust in the platform itself is jeopardized. A failure in this regard could decrease user engagement, as users may begin to question the platform's credibility. This decline in user trust could lead to a deterioration in platform health, as users become less inclined to participate in the platform’s ecosystem or rely on its content for information.  
+* **Mesoscopic level:**
+  
+At the community level, the presence of coordinated bots disrupts the credibility of recommendation systems and weakens social cohesion. In our simulation, once bot behaviour becomes dominant within specific regions of the platform, user reports become less frequent due to the normalization of manipulative content, which is an emergent behaviour reflecting trust fatigue.
+
+This aligns with observed phenomena on platforms like Facebook or Twitter, where persistent exposure to low-quality or misleading content has been linked to user disengagement, increased polarization, and platform abandonment. When moderation systems are perceived as ineffective or biased, users begin to question the integrity of the entire ecosystem. Our model demonstrates this decline through diminishing report frequency and stagnant improvement in AI detection effectiveness without timely user feedback.
+
 * **Macro level:**   
   * At the broader societal level, the spread of false advertisements can have far-reaching effects on public opinion and social dynamics. False advertisements may influence voting behavior during elections, sway public sentiment on critical issues, or even cause social unrest. These kinds of manipulations can disrupt democratic processes, leading to significant consequences for public discourse and societal stability. Therefore, effective content moderation is not just about maintaining platform integrity but also about safeguarding broader societal structures and preventing misinformation from distorting reality on a mass scale.
 
