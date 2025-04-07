@@ -77,7 +77,7 @@ The simulation employs a hybrid spatial environment combining a **2D grid** for 
 #### User Behavior  
   * Liking & Commenting: Influence the spread of content.  
   * Reporting: Increases the likelihood that the platform's AI will remove the content.  
-  * Purchasing**:** Driven by exposure to high-ranking ads.
+  * Purchasing: Driven by exposure to high-ranking ads.
   * For the computational implementation, we use an intelligent body model based on the MESA framework, where the bot and the platform AI interact in multiple time steps and adjust their strategies based on feedbacks  
     
 ### **Interaction Dynamics**:   
@@ -110,57 +110,27 @@ The results show that in the process of continuous strategy optimization, the in
 
 By running the simulation model several times and collecting data at different time steps, the following key aspects are observed and analyzed:  
 
-* Spreading rate of false advertisements:
-
-  Initially, bots gain traction by posting ads and interacting with users.
-
-  Over time, ModAIAgent improves detection, reducing ad exposure.
-
-  The spread of false ads follows a non-linear trajectory, peaking before tapering off as detection mechanisms improve.
-
-* Users exhibit diverse behaviors:
-
-  Increased bot activity correlates with higher user reporting rates.
-
-  Users gradually adapt to misinformation, altering their interaction patterns.
-
-* Audit AI Detection and Response:
-
-  ModAIAgent identifies bots using behavior analysis.
-
-  Detection efficiency improves iteratively but fluctuates under coordinated bot attacks.
-
-  Overreaction in detection can occasionally lead to false positives.
+* Spreading rate of false advertisements:  Initially, bots gain traction by posting ads and interacting with users. Over time, ModAIAgent improves detection, reducing ad exposure. The spread of false ads follows a non-linear trajectory, peaking before tapering off as detection mechanisms improve.
+* Users exhibit diverse behaviors: Increased bot activity correlates with higher user reporting rates. Users gradually adapt to misinformation, altering their interaction patterns.
+* Audit AI Detection and Response:  ModAIAgent identifies bots using behavior analysis.  Detection efficiency improves iteratively but fluctuates under coordinated bot attacks. Overreaction in detection can occasionally lead to false positives.
 
 ![Dynamics](https://github.com/user-attachments/assets/cbeb49d2-6190-43ff-946d-ee37d6828610)
 
 **Quantitative Metrics and Qualitative Description：**  
 In order to analyze the simulation results more systematically, we use several key metrics to measure the dissemination effect of false advertisements as well as the interaction patterns between bot agents and user agents.  
-* Exposure rate of false ads  
-  We measure the spreading effect of false advertisements by recording the exposure frequency of each advertisement on the platform. Figure 1 illustrates the trend of the exposure rate of false ads over time. It can be seen that the exposure rate is low initially, but increases significantly as the frequency of advertisements posted by bot agents increases. The intervention of auditing AI makes the exposure rate gradually fall back at the later stage.  
-* Frequency of User Reporting  
-  The reporting behavior of user agents on false advertisements is an important indicator of the platform interaction mode. Figure 2 shows the reporting behavior of users at different time steps. The data shows that as the number of false ads increases, the frequency of user reporting rises rapidly, indicating that users will gradually take proactive actions in the face of false content.  
-* Audit AI Detection Rate  
-  The Audit AI agent evaluates its efficiency by the success rate of detecting false advertisements. Figure 3 demonstrates the ability of Audit AI to recognize false ads at different stages. Although the robot agent's strategy makes the Audit AI's detection efficiency low at the beginning, the Audit AI gradually optimizes its detection strategy over time, and eventually achieves a high detection success rate.  
-    
-* **Charts and Network Diagrams：**  
-Visual Representations  
-Red nodes: Represent original content.  
-Blue nodes: Indicate advertisement posts.
-
+* Exposure rate of false ads: We measure the spreading effect of false advertisements by recording the exposure frequency of each advertisement on the platform. Figure 1 illustrates the trend of the exposure rate of false ads over time. It can be seen that the exposure rate is low initially, but increases significantly as the frequency of advertisements posted by bot agents increases. The intervention of auditing AI makes the exposure rate gradually fall back at the later stage.  
+* Frequency of User Reporting: The reporting behavior of user agents on false advertisements is an important indicator of the platform interaction mode. Figure 2 shows the reporting behavior of users at different time steps. The data shows that as the number of false ads increases, the frequency of user reporting rises rapidly, indicating that users will gradually take proactive actions in the face of false content.  
+* Audit AI Detection Rate: The Audit AI agent evaluates its efficiency by the success rate of detecting false advertisements. Figure 3 demonstrates the ability of Audit AI to recognize false ads at different stages. Although the robot agent's strategy makes the Audit AI's detection efficiency low at the beginning, the Audit AI gradually optimizes its detection strategy over time, and eventually achieves a high detection success rate.
 
 **Unexpected Behavior and Emergence Dynamics：**  
 
 Although we anticipated during model design that the robotic agents would gradually adjust their strategies as the detection mechanisms of the auditing AI were optimized, we observed some unexpected behavioral patterns.  
 
-* Collaborative Behavior of Robotic Agents  
-  Over the course of multiple simulation runs, we noticed a gradual increase in collaborative behavior among the robot agents. Certain bots started to increase their exposure by co-publishing similar fake advertisements, and even manipulating the social network on the platform by liking and commenting on each other's ads. This collaborative behavior creates an advertising “information bubble” that dramatically increases the impact of false advertisements in a short period of time, even though the auditing AI agents have begun to strengthen their detection.  
-* User Agents' Response Patterns  
-  User agents exhibit complex response patterns when confronted with fake ads. Some users were not initially suspicious of the ads, but their reporting behavior increased significantly as more false ads appeared. However, certain users consistently failed to recognize all false ads, possibly due to the diversity of ad content on the platform and the varying interests of users. This phenomenon suggests that the diversity of content in recommender systems and platforms may have an impact on users' ability to recognize false ads.  
-* Overreaction of Audit AI  
-  Although the detection ability of the Audit AI is gradually improving, in some cases the Audit AI exhibits overreaction, especially when faced with collaborative interactions with bots. The Audit AI's detection mechanism sometimes misjudged the interaction behavior as false, thus incorrectly flagging certain legitimate advertisements. This misjudgment phenomenon suggests that Audit AI needs more refined detection strategies to avoid overreaction.  
+* Collaborative Behavior of Robotic Agents:  Over the course of multiple simulation runs, we noticed a gradual increase in collaborative behavior among the robot agents. Certain bots started to increase their exposure by co-publishing similar fake advertisements, and even manipulating the social network on the platform by liking and commenting on each other's ads. This collaborative behavior creates an advertising “information bubble” that dramatically increases the impact of false advertisements in a short period of time, even though the auditing AI agents have begun to strengthen their detection.  
+* User Agents' Response Patterns:  User agents exhibit complex response patterns when confronted with fake ads. Some users were not initially suspicious of the ads, but their reporting behavior increased significantly as more false ads appeared. However, certain users consistently failed to recognize all false ads, possibly due to the diversity of ad content on the platform and the varying interests of users. This phenomenon suggests that the diversity of content in recommender systems and platforms may have an impact on users' ability to recognize false ads.  
+* Overreaction of Audit AI:  Although the detection ability of the Audit AI is gradually improving, in some cases the Audit AI exhibits overreaction, especially when faced with collaborative interactions with bots. The Audit AI's detection mechanism sometimes misjudged the interaction behavior as false, thus incorrectly flagging certain legitimate advertisements. This misjudgment phenomenon suggests that Audit AI needs more refined detection strategies to avoid overreaction.  
 
-* ![UnexpectedBehavior](https://github.com/user-attachments/assets/82989cff-1c68-4505-83d9-431496d3d9c0)   
+![UnexpectedBehavior](https://github.com/user-attachments/assets/82989cff-1c68-4505-83d9-431496d3d9c0)   
 
 **Interpretation and Discussion**  
 Collaborative Behavior of Bot Agents: By analyzing the collaborative behavior of bot agents, we find that the spread of false advertisements is not only driven by individual bots, but also by mutual collaboration among multiple bot agents. This finding reminds us that the spread of false advertisements is no longer just an interaction between individual users and advertisements, but can spread rapidly through the collaboration of bots, forming a large-scale information bubble.  
