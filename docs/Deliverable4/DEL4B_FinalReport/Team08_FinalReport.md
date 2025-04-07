@@ -1,3 +1,5 @@
+# Bots vs Guardians: Simulating Audit on Xiaohongshu (RedNote)
+
 ## **§1. Phenomenon Overview**
 
 ### Phenomenon
